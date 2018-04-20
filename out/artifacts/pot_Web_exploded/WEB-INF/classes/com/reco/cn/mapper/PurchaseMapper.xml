@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.PurchaseDao">
+
+    <select id="get" resultType="com.reco.cn.domain.PurchaseDO">
+        select
+        `po_id`,`po_no`,`pot_id`,`design_id`,`po_dttm`,`order_state`,`seller_id`,`buyer_id`,`buyer_name`,`price`,`delivery_addr`,`taken`,`express_company`,`express_no`,`remark`,`so_ids`
+        from pot_purchase where po_id = #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.PurchaseDO">
+        select
+        `po_id`,`po_no`,`pot_id`,`design_id`,`po_dttm`,`order_state`,`seller_id`,`buyer_id`,`buyer_name`,`price`,`delivery_addr`,`taken`,`express_company`,`express_no`,`remark`,`so_ids`
+        from pot_purchase
+        <where>
+            <if test="poId != null and poId != ''">and po_id = #{poId}</if>
+            <if test="poNo != null and poNo != ''">and po_no = #{poNo}</if>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="poDttm != null and poDttm != ''">and po_dttm = #{poDttm}</if>
+            <if test="orderState != null and orderState != ''">and order_state = #{orderState}</if>
+            <if test="sellerId != null and sellerId != ''">and seller_id = #{sellerId}</if>
+            <if test="buyerId != null and buyerId != ''">and buyer_id = #{buyerId}</if>
+            <if test="buyerName != null and buyerName != ''">and buyer_name = #{buyerName}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="deliveryAddr != null and deliveryAddr != ''">and delivery_addr = #{deliveryAddr}</if>
+            <if test="taken != null and taken != ''">and taken = #{taken}</if>
+            <if test="expressCompany != null and expressCompany != ''">and express_company = #{expressCompany}</if>
+            <if test="expressNo != null and expressNo != ''">and express_no = #{expressNo}</if>
+            <if test="remark != null and remark != ''">and remark = #{remark}</if>
+            <if test="soIds != null and soIds != ''">and so_ids = #{soIds}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by po_id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from pot_purchase
+        <where>
+            <if test="poId != null and poId != ''">and po_id = #{poId}</if>
+            <if test="poNo != null and poNo != ''">and po_no = #{poNo}</if>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="poDttm != null and poDttm != ''">and po_dttm = #{poDttm}</if>
+            <if test="orderState != null and orderState != ''">and order_state = #{orderState}</if>
+            <if test="sellerId != null and sellerId != ''">and seller_id = #{sellerId}</if>
+            <if test="buyerId != null and buyerId != ''">and buyer_id = #{buyerId}</if>
+            <if test="buyerName != null and buyerName != ''">and buyer_name = #{buyerName}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="deliveryAddr != null and deliveryAddr != ''">and delivery_addr = #{deliveryAddr}</if>
+            <if test="taken != null and taken != ''">and taken = #{taken}</if>
+            <if test="expressCompany != null and expressCompany != ''">and express_company = #{expressCompany}</if>
+            <if test="expressNo != null and expressNo != ''">and express_no = #{expressNo}</if>
+            <if test="remark != null and remark != ''">and remark = #{remark}</if>
+            <if test="soIds != null and soIds != ''">and so_ids = #{soIds}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.PurchaseDO" useGeneratedKeys="true" keyProperty="poId">
+        insert into pot_purchase
+        (
+        `po_no`,
+        `pot_id`,
+        `design_id`,
+        `po_dttm`,
+        `order_state`,
+        `seller_id`,
+        `buyer_id`,
+        `buyer_name`,
+        `price`,
+        `delivery_addr`,
+        `taken`,
+        `express_company`,
+        `express_no`,
+        `remark`,
+        `so_ids`
+        )
+        values
+        (
+        #{poNo},
+        #{potId},
+        #{designId},
+        #{poDttm},
+        #{orderState},
+        #{sellerId},
+        #{buyerId},
+        #{buyerName},
+        #{price},
+        #{deliveryAddr},
+        #{taken},
+        #{expressCompany},
+        #{expressNo},
+        #{remark},
+        #{soIds}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.PurchaseDO">
+        update pot_purchase
+        <set>
+            <if test="poNo != null">`po_no` = #{poNo},</if>
+            <if test="potId != null">`pot_id` = #{potId},</if>
+            <if test="designId != null">`design_id` = #{designId},</if>
+            <if test="poDttm != null">`po_dttm` = #{poDttm},</if>
+            <if test="orderState != null">`order_state` = #{orderState},</if>
+            <if test="sellerId != null">`seller_id` = #{sellerId},</if>
+            <if test="buyerId != null">`buyer_id` = #{buyerId},</if>
+            <if test="buyerName != null">`buyer_name` = #{buyerName},</if>
+            <if test="price != null">`price` = #{price},</if>
+            <if test="deliveryAddr != null">`delivery_addr` = #{deliveryAddr},</if>
+            <if test="taken != null">`taken` = #{taken},</if>
+            <if test="expressCompany != null">`express_company` = #{expressCompany},</if>
+            <if test="expressNo != null">`express_no` = #{expressNo},</if>
+            <if test="remark != null">`remark` = #{remark},</if>
+            <if test="soIds != null">`so_ids` = #{soIds}</if>
+        </set>
+        where po_id = #{poId}
+    </update>
+
+    <delete id="remove">
+        delete from pot_purchase where po_id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from pot_purchase where po_id in
+        <foreach item="poId" collection="array" open="(" separator="," close=")">
+            #{poId}
+        </foreach>
+    </delete>
+
+</mapper>

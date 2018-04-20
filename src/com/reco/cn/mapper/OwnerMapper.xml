@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.OwnerDao">
+
+    <select id="get" resultType="com.reco.cn.domain.OwnerDO">
+        select `pot_id`,`owner_id`,`owner_name`,`price`,`taken`,`order_id`,`update_date` from pot_owner where pot_id =
+        #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.OwnerDO">
+        select `pot_id`,`owner_id`,`owner_name`,`price`,`taken`,`order_id`,`update_date` from pot_owner
+        <where>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="ownerId != null and ownerId != ''">and owner_id = #{ownerId}</if>
+            <if test="ownerName != null and ownerName != ''">and owner_name = #{ownerName}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="taken != null and taken != ''">and taken = #{taken}</if>
+            <if test="orderId != null and orderId != ''">and order_id = #{orderId}</if>
+            <if test="updateDate != null and updateDate != ''">and update_date = #{updateDate}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by pot_id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from pot_owner
+        <where>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="ownerId != null and ownerId != ''">and owner_id = #{ownerId}</if>
+            <if test="ownerName != null and ownerName != ''">and owner_name = #{ownerName}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="taken != null and taken != ''">and taken = #{taken}</if>
+            <if test="orderId != null and orderId != ''">and order_id = #{orderId}</if>
+            <if test="updateDate != null and updateDate != ''">and update_date = #{updateDate}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.OwnerDO">
+        insert into pot_owner
+        (
+        `pot_id`,
+        `owner_id`,
+        `owner_name`,
+        `price`,
+        `taken`,
+        `order_id`,
+        `update_date`
+        )
+        values
+        (
+        #{potId},
+        #{ownerId},
+        #{ownerName},
+        #{price},
+        #{taken},
+        #{orderId},
+        #{updateDate}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.OwnerDO">
+        update pot_owner
+        <set>
+            <if test="ownerId != null">`owner_id` = #{ownerId},</if>
+            <if test="ownerName != null">`owner_name` = #{ownerName},</if>
+            <if test="price != null">`price` = #{price},</if>
+            <if test="taken != null">`taken` = #{taken},</if>
+            <if test="orderId != null">`order_id` = #{orderId},</if>
+            <if test="updateDate != null">`update_date` = #{updateDate}</if>
+        </set>
+        where pot_id = #{potId}
+    </update>
+
+    <delete id="remove">
+        delete from pot_owner where pot_id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from pot_owner where pot_id in
+        <foreach item="potId" collection="array" open="(" separator="," close=")">
+            #{potId}
+        </foreach>
+    </delete>
+
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.ArtDao">
+
+    <select id="get" resultType="com.reco.cn.domain.ArtDO">
+        select
+        `id`,`name`,`idcard`,`img`,`resume`,`works`,`origin`,`phone`,`title`,`title_by`,`title_no`,`title_update`,`zhuanli`,`banquan`,`cxsj`,`mingjia`,`is_exp`
+        from user_art where id = #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.ArtDO">
+        select
+        `id`,`name`,`idcard`,`img`,`resume`,`works`,`origin`,`phone`,`title`,`title_by`,`title_no`,`title_update`,`zhuanli`,`banquan`,`cxsj`,`mingjia`,`is_exp`
+        from user_art
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="idcard != null and idcard != ''">and idcard = #{idcard}</if>
+            <if test="img != null and img != ''">and img = #{img}</if>
+            <if test="resume != null and resume != ''">and resume = #{resume}</if>
+            <if test="works != null and works != ''">and works = #{works}</if>
+            <if test="origin != null and origin != ''">and origin = #{origin}</if>
+            <if test="phone != null and phone != ''">and phone = #{phone}</if>
+            <if test="title != null and title != ''">and title = #{title}</if>
+            <if test="title_By != null and title_By != ''">and title_by = #{title_By}</if>
+            <if test="titleNo != null and titleNo != ''">and title_no = #{titleNo}</if>
+            <if test="titleUpdate != null and titleUpdate != ''">and title_update = #{titleUpdate}</if>
+            <if test="zhuanli != null and zhuanli != ''">and zhuanli = #{zhuanli}</if>
+            <if test="banquan != null and banquan != ''">and banquan = #{banquan}</if>
+            <if test="cxsj != null and cxsj != ''">and cxsj = #{cxsj}</if>
+            <if test="mingjia != null and mingjia != ''">and mingjia = #{mingjia}</if>
+            <if test="is_exp != null and is_exp != ''">and is_exp = #{is_exp}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by id asc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from user_art
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="idcard != null and idcard != ''">and idcard = #{idcard}</if>
+            <if test="img != null and img != ''">and img = #{img}</if>
+            <if test="resume != null and resume != ''">and resume = #{resume}</if>
+            <if test="works != null and works != ''">and works = #{works}</if>
+            <if test="origin != null and origin != ''">and origin = #{origin}</if>
+            <if test="phone != null and phone != ''">and phone = #{phone}</if>
+            <if test="title != null and title != ''">and title = #{title}</if>
+            <if test="titleBy != null and titleBy != ''">and title_by = #{titleBy}</if>
+            <if test="titleNo != null and titleNo != ''">and title_no = #{titleNo}</if>
+            <if test="titleUpdate != null and titleUpdate != ''">and title_update = #{titleUpdate}</if>
+            <if test="zhuanli != null and zhuanli != ''">and zhuanli = #{zhuanli}</if>
+            <if test="banquan != null and banquan != ''">and banquan = #{banquan}</if>
+            <if test="cxsj != null and cxsj != ''">and cxsj = #{cxsj}</if>
+            <if test="mingjia != null and mingjia != ''">and mingjia = #{mingjia}</if>
+            <if test="isExp != null and isExp != ''">and is_exp = #{isExp}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.ArtDO" useGeneratedKeys="true" keyProperty="id">
+        insert into user_art
+        (
+        `name`,
+        `idcard`,
+        `img`,
+        `resume`,
+        `works`,
+        `origin`,
+        `phone`,
+        `title`,
+        `title_by`,
+        `title_no`,
+        `title_update`,
+        `zhuanli`,
+        `banquan`,
+        `cxsj`,
+        `mingjia`,
+        `is_exp`
+        )
+        values
+        (
+        #{name},
+        #{idcard},
+        #{img},
+        #{resume},
+        #{works},
+        #{origin},
+        #{phone},
+        #{title},
+        #{titleBy},
+        #{titleNo},
+        #{titleUpdate},
+        #{zhuanli},
+        #{banquan},
+        #{cxsj},
+        #{mingjia},
+        #{isExp}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.ArtDO">
+        update user_art
+        <set>
+            <if test="name != null">`name` = #{name},</if>
+            <if test="idcard != null">`idcard` = #{idcard},</if>
+            <if test="img != null">`img` = #{img},</if>
+            <if test="resume != null">`resume` = #{resume},</if>
+            <if test="works != null">`works` = #{works},</if>
+            <if test="origin != null">`origin` = #{origin},</if>
+            <if test="phone != null">`phone` = #{phone},</if>
+            <if test="title != null">`title` = #{title},</if>
+            <if test="titleBy != null">`title_by` = #{titleBy},</if>
+            <if test="titleNo != null">`title_no` = #{titleNo},</if>
+            <if test="titleUpdate != null">`title_update` = #{titleUpdate},</if>
+            <if test="zhuanli != null">`zhuanli` = #{zhuanli},</if>
+            <if test="banquan != null">`banquan` = #{banquan},</if>
+            <if test="cxsj != null">`cxsj` = #{cxsj},</if>
+            <if test="mingjia != null">`mingjia` = #{mingjia},</if>
+            <if test="isExp != null">`is_exp` = #{isExp}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="remove">
+        delete from user_art where id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from user_art where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

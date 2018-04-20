@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.MemAddrDao">
+
+    <select id="get" resultType="com.reco.cn.domain.MemAddrDO">
+        select `id`,`area`,`city`,`defaultDz`,`idcard`,`jddz`,`name`,`phone`,`postcode`,`province`,`userid` from
+        user_mem_addr where id = #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.MemAddrDO">
+        select `id`,`area`,`city`,`defaultDz`,`idcard`,`jddz`,`name`,`phone`,`postcode`,`province`,`userid` from
+        user_mem_addr
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="area != null and area != ''">and area = #{area}</if>
+            <if test="city != null and city != ''">and city = #{city}</if>
+            <if test="defaultdz != null and defaultdz != ''">and defaultDz = #{defaultdz}</if>
+            <if test="idcard != null and idcard != ''">and idcard = #{idcard}</if>
+            <if test="jddz != null and jddz != ''">and jddz = #{jddz}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="phone != null and phone != ''">and phone = #{phone}</if>
+            <if test="postcode != null and postcode != ''">and postcode = #{postcode}</if>
+            <if test="province != null and province != ''">and province = #{province}</if>
+            <if test="userid != null and userid != ''">and userid = #{userid}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from user_mem_addr
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="area != null and area != ''">and area = #{area}</if>
+            <if test="city != null and city != ''">and city = #{city}</if>
+            <if test="defaultdz != null and defaultdz != ''">and defaultDz = #{defaultdz}</if>
+            <if test="idcard != null and idcard != ''">and idcard = #{idcard}</if>
+            <if test="jddz != null and jddz != ''">and jddz = #{jddz}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="phone != null and phone != ''">and phone = #{phone}</if>
+            <if test="postcode != null and postcode != ''">and postcode = #{postcode}</if>
+            <if test="province != null and province != ''">and province = #{province}</if>
+            <if test="userid != null and userid != ''">and userid = #{userid}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.MemAddrDO" useGeneratedKeys="true" keyProperty="id">
+        insert into user_mem_addr
+        (
+        `area`,
+        `city`,
+        `defaultDz`,
+        `idcard`,
+        `jddz`,
+        `name`,
+        `phone`,
+        `postcode`,
+        `province`,
+        `userid`
+        )
+        values
+        (
+        #{area},
+        #{city},
+        #{defaultdz},
+        #{idcard},
+        #{jddz},
+        #{name},
+        #{phone},
+        #{postcode},
+        #{province},
+        #{userid}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.MemAddrDO">
+        update user_mem_addr
+        <set>
+            <if test="area != null">`area` = #{area},</if>
+            <if test="city != null">`city` = #{city},</if>
+            <if test="defaultdz != null">`defaultDz` = #{defaultdz},</if>
+            <if test="idcard != null">`idcard` = #{idcard},</if>
+            <if test="jddz != null">`jddz` = #{jddz},</if>
+            <if test="name != null">`name` = #{name},</if>
+            <if test="phone != null">`phone` = #{phone},</if>
+            <if test="postcode != null">`postcode` = #{postcode},</if>
+            <if test="province != null">`province` = #{province},</if>
+            <if test="userid != null">`userid` = #{userid}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="remove">
+        delete from user_mem_addr where id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from user_mem_addr where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

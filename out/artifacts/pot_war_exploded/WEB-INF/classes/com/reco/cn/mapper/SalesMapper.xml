@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.SalesDao">
+
+    <select id="get" resultType="com.reco.cn.domain.SalesDO">
+        select `so_id`,`so_no`,`seller_id`,`pot_id`,`design_id`,`sell_dttm`,`price`,`sell_mode`,`complete_dttm`,`po_ids`
+        from pot_sales where so_id = #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.SalesDO">
+        select `so_id`,`so_no`,`seller_id`,`pot_id`,`design_id`,`sell_dttm`,`price`,`sell_mode`,`complete_dttm`,`po_ids`
+        from pot_sales
+        <where>
+            <if test="soId != null and soId != ''">and so_id = #{soId}</if>
+            <if test="soNo != null and soNo != ''">and so_no = #{soNo}</if>
+            <if test="sellerId != null and sellerId != ''">and seller_id = #{sellerId}</if>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="sellDttm != null and sellDttm != ''">and sell_dttm = #{sellDttm}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="sellMode != null and sellMode != ''">and sell_mode = #{sellMode}</if>
+            <if test="completeDttm != null and completeDttm != ''">and complete_dttm = #{completeDttm}</if>
+            <if test="poIds != null and poIds != ''">and po_ids = #{poIds}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by so_id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from pot_sales
+        <where>
+            <if test="soId != null and soId != ''">and so_id = #{soId}</if>
+            <if test="soNo != null and soNo != ''">and so_no = #{soNo}</if>
+            <if test="sellerId != null and sellerId != ''">and seller_id = #{sellerId}</if>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="sellDttm != null and sellDttm != ''">and sell_dttm = #{sellDttm}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="sellMode != null and sellMode != ''">and sell_mode = #{sellMode}</if>
+            <if test="completeDttm != null and completeDttm != ''">and complete_dttm = #{completeDttm}</if>
+            <if test="poIds != null and poIds != ''">and po_ids = #{poIds}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.SalesDO">
+        insert into pot_sales
+        (
+        `so_id`,
+        `so_no`,
+        `seller_id`,
+        `pot_id`,
+        `design_id`,
+        `sell_dttm`,
+        `price`,
+        `sell_mode`,
+        `complete_dttm`,
+        `po_ids`
+        )
+        values
+        (
+        #{soId},
+        #{soNo},
+        #{sellerId},
+        #{potId},
+        #{designId},
+        #{sellDttm},
+        #{price},
+        #{sellMode},
+        #{completeDttm},
+        #{poIds}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.SalesDO">
+        update pot_sales
+        <set>
+            <if test="soNo != null">`so_no` = #{soNo},</if>
+            <if test="sellerId != null">`seller_id` = #{sellerId},</if>
+            <if test="potId != null">`pot_id` = #{potId},</if>
+            <if test="designId != null">`design_id` = #{designId},</if>
+            <if test="sellDttm != null">`sell_dttm` = #{sellDttm},</if>
+            <if test="price != null">`price` = #{price},</if>
+            <if test="sellMode != null">`sell_mode` = #{sellMode},</if>
+            <if test="completeDttm != null">`complete_dttm` = #{completeDttm},</if>
+            <if test="poIds != null">`po_ids` = #{poIds}</if>
+        </set>
+        where so_id = #{soId}
+    </update>
+
+    <delete id="remove">
+        delete from pot_sales where so_id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from pot_sales where so_id in
+        <foreach item="soId" collection="array" open="(" separator="," close=")">
+            #{soId}
+        </foreach>
+    </delete>
+
+</mapper>

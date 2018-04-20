@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.InfoDao">
+
+    <select id="get" resultType="com.reco.cn.domain.InfoDO">
+        select
+        `pot_id`,`design_id`,`jdzh`,`price`,`rongliang`,`xiangqing`,`authorProductImage`,`authoryz`,`authorcr`,`authorqm`,`productsm`,`authorzw`,`cs`,`fbimage`,`fdimage`,`fgimage`,`finshDate`,`flimage`,`fsimage`,`fzimage`,`gg_h`,`gg_kj`,`gg_len`,`gg_w`,`pm`,`zx`,`sm360`,`jiami`
+        from pot_info where pot_id = #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.InfoDO">
+        select
+        `pot_id`,`design_id`,`jdzh`,`price`,`rongliang`,`xiangqing`,`authorProductImage`,`authoryz`,`authorcr`,`authorqm`,`productsm`,`authorzw`,`cs`,`fbimage`,`fdimage`,`fgimage`,`finshDate`,`flimage`,`fsimage`,`fzimage`,`gg_h`,`gg_kj`,`gg_len`,`gg_w`,`pm`,`zx`,`sm360`,`jiami`
+        from pot_info
+        <where>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="jdzh != null and jdzh != ''">and jdzh = #{jdzh}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="rongliang != null and rongliang != ''">and rongliang = #{rongliang}</if>
+            <if test="xiangqing != null and xiangqing != ''">and xiangqing = #{xiangqing}</if>
+            <if test="authorproductimage != null and authorproductimage != ''">and authorProductImage =
+                #{authorproductimage}
+            </if>
+            <if test="authoryz != null and authoryz != ''">and authoryz = #{authoryz}</if>
+            <if test="authorcr != null and authorcr != ''">and authorcr = #{authorcr}</if>
+            <if test="authorqm != null and authorqm != ''">and authorqm = #{authorqm}</if>
+            <if test="productsm != null and productsm != ''">and productsm = #{productsm}</if>
+            <if test="authorzw != null and authorzw != ''">and authorzw = #{authorzw}</if>
+            <if test="cs != null and cs != ''">and cs = #{cs}</if>
+            <if test="fbimage != null and fbimage != ''">and fbimage = #{fbimage}</if>
+            <if test="fdimage != null and fdimage != ''">and fdimage = #{fdimage}</if>
+            <if test="fgimage != null and fgimage != ''">and fgimage = #{fgimage}</if>
+            <if test="finshdate != null and finshdate != ''">and finshDate = #{finshdate}</if>
+            <if test="flimage != null and flimage != ''">and flimage = #{flimage}</if>
+            <if test="fsimage != null and fsimage != ''">and fsimage = #{fsimage}</if>
+            <if test="fzimage != null and fzimage != ''">and fzimage = #{fzimage}</if>
+            <if test="ggH != null and ggH != ''">and gg_h = #{ggH}</if>
+            <if test="ggKj != null and ggKj != ''">and gg_kj = #{ggKj}</if>
+            <if test="ggLen != null and ggLen != ''">and gg_len = #{ggLen}</if>
+            <if test="ggW != null and ggW != ''">and gg_w = #{ggW}</if>
+            <if test="pm != null and pm != ''">and pm = #{pm}</if>
+            <if test="zx != null and zx != ''">and zx = #{zx}</if>
+            <if test="sm360 != null and sm360 != ''">and sm360 = #{sm360}</if>
+            <if test="jiami != null and jiami != ''">and jiami = #{jiami}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by pot_id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from pot_info
+        <where>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="jdzh != null and jdzh != ''">and jdzh = #{jdzh}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="rongliang != null and rongliang != ''">and rongliang = #{rongliang}</if>
+            <if test="xiangqing != null and xiangqing != ''">and xiangqing = #{xiangqing}</if>
+            <if test="authorproductimage != null and authorproductimage != ''">and authorProductImage =
+                #{authorproductimage}
+            </if>
+            <if test="authoryz != null and authoryz != ''">and authoryz = #{authoryz}</if>
+            <if test="authorcr != null and authorcr != ''">and authorcr = #{authorcr}</if>
+            <if test="authorqm != null and authorqm != ''">and authorqm = #{authorqm}</if>
+            <if test="productsm != null and productsm != ''">and productsm = #{productsm}</if>
+            <if test="authorzw != null and authorzw != ''">and authorzw = #{authorzw}</if>
+            <if test="cs != null and cs != ''">and cs = #{cs}</if>
+            <if test="fbimage != null and fbimage != ''">and fbimage = #{fbimage}</if>
+            <if test="fdimage != null and fdimage != ''">and fdimage = #{fdimage}</if>
+            <if test="fgimage != null and fgimage != ''">and fgimage = #{fgimage}</if>
+            <if test="finshdate != null and finshdate != ''">and finshDate = #{finshdate}</if>
+            <if test="flimage != null and flimage != ''">and flimage = #{flimage}</if>
+            <if test="fsimage != null and fsimage != ''">and fsimage = #{fsimage}</if>
+            <if test="fzimage != null and fzimage != ''">and fzimage = #{fzimage}</if>
+            <if test="ggH != null and ggH != ''">and gg_h = #{ggH}</if>
+            <if test="ggKj != null and ggKj != ''">and gg_kj = #{ggKj}</if>
+            <if test="ggLen != null and ggLen != ''">and gg_len = #{ggLen}</if>
+            <if test="ggW != null and ggW != ''">and gg_w = #{ggW}</if>
+            <if test="pm != null and pm != ''">and pm = #{pm}</if>
+            <if test="zx != null and zx != ''">and zx = #{zx}</if>
+            <if test="sm360 != null and sm360 != ''">and sm360 = #{sm360}</if>
+            <if test="jiami != null and jiami != ''">and jiami = #{jiami}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.InfoDO" useGeneratedKeys="true" keyProperty="potId">
+        insert into pot_info
+        (
+        `design_id`,
+        `jdzh`,
+        `price`,
+        `rongliang`,
+        `xiangqing`,
+        `authorProductImage`,
+        `authoryz`,
+        `authorcr`,
+        `authorqm`,
+        `productsm`,
+        `authorzw`,
+        `cs`,
+        `fbimage`,
+        `fdimage`,
+        `fgimage`,
+        `finshDate`,
+        `flimage`,
+        `fsimage`,
+        `fzimage`,
+        `gg_h`,
+        `gg_kj`,
+        `gg_len`,
+        `gg_w`,
+        `pm`,
+        `zx`,
+        `sm360`,
+        `jiami`
+        )
+        values
+        (
+        #{designId},
+        #{jdzh},
+        #{price},
+        #{rongliang},
+        #{xiangqing},
+        #{authorproductimage},
+        #{authoryz},
+        #{authorcr},
+        #{authorqm},
+        #{productsm},
+        #{authorzw},
+        #{cs},
+        #{fbimage},
+        #{fdimage},
+        #{fgimage},
+        #{finshdate},
+        #{flimage},
+        #{fsimage},
+        #{fzimage},
+        #{ggH},
+        #{ggKj},
+        #{ggLen},
+        #{ggW},
+        #{pm},
+        #{zx},
+        #{sm360},
+        #{jiami}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.InfoDO">
+        update pot_info
+        <set>
+            <if test="designId != null">`design_id` = #{designId},</if>
+            <if test="jdzh != null">`jdzh` = #{jdzh},</if>
+            <if test="price != null">`price` = #{price},</if>
+            <if test="rongliang != null">`rongliang` = #{rongliang},</if>
+            <if test="xiangqing != null">`xiangqing` = #{xiangqing},</if>
+            <if test="authorproductimage != null">`authorProductImage` = #{authorproductimage},</if>
+            <if test="authoryz != null">`authoryz` = #{authoryz},</if>
+            <if test="authorcr != null">`authorcr` = #{authorcr},</if>
+            <if test="authorqm != null">`authorqm` = #{authorqm},</if>
+            <if test="productsm != null">`productsm` = #{productsm},</if>
+            <if test="authorzw != null">`authorzw` = #{authorzw},</if>
+            <if test="cs != null">`cs` = #{cs},</if>
+            <if test="fbimage != null">`fbimage` = #{fbimage},</if>
+            <if test="fdimage != null">`fdimage` = #{fdimage},</if>
+            <if test="fgimage != null">`fgimage` = #{fgimage},</if>
+            <if test="finshdate != null">`finshDate` = #{finshdate},</if>
+            <if test="flimage != null">`flimage` = #{flimage},</if>
+            <if test="fsimage != null">`fsimage` = #{fsimage},</if>
+            <if test="fzimage != null">`fzimage` = #{fzimage},</if>
+            <if test="ggH != null">`gg_h` = #{ggH},</if>
+            <if test="ggKj != null">`gg_kj` = #{ggKj},</if>
+            <if test="ggLen != null">`gg_len` = #{ggLen},</if>
+            <if test="ggW != null">`gg_w` = #{ggW},</if>
+            <if test="pm != null">`pm` = #{pm},</if>
+            <if test="zx != null">`zx` = #{zx},</if>
+            <if test="sm360 != null">`sm360` = #{sm360},</if>
+            <if test="jiami != null">`jiami` = #{jiami}</if>
+        </set>
+        where pot_id = #{potId}
+    </update>
+
+    <delete id="remove">
+        delete from pot_info where pot_id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from pot_info where pot_id in
+        <foreach item="potId" collection="array" open="(" separator="," close=")">
+            #{potId}
+        </foreach>
+    </delete>
+
+</mapper>

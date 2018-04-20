@@ -1,0 +1,1644 @@
+@charset "utf-8";
+/* CSS Document */
+
+.fwjd {
+    width: 52%; /*height: 670px;*/
+    padding-top: 15px;
+    padding-right: 6%;
+    padding-bottom: 15px;
+    padding-left: 42%;
+    background-color: #f8f8f8;
+    background-image: url(../images/yunBg_black.png), url(../images/t11-1.jpg);
+    background-repeat: repeat, no-repeat;
+    background-position: center, left top;
+    position: relative
+}
+
+.fwjd.zjjdPar {
+    width: 62%;
+    padding-left: 32%;
+}
+
+.fwjd .title {
+    height: 80px;
+    line-height: 80px;
+    padding: 15px 0;
+    margin-bottom: 40px;
+}
+
+.fwjd .title .logo {
+    height: 100%;
+    margin-left: -50px
+}
+
+.fwjd .title .logo img {
+    height: 100%
+}
+
+.fwjd .title .name {
+    font-size: 20px;
+    color: #545454
+}
+
+.fwjd .title-sub {
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600
+}
+
+.fwjd .intr {
+    font-size: 16px;
+    line-height: 24px
+}
+
+.fwjd .intr span {
+    display: block
+}
+
+.fwjd .select {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    overflow: hidden
+}
+
+.fwjd .select li {
+    width: 33%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.fwjd .select li a {
+    display: block;
+    height: 240px;
+    text-align: center;
+    background-color: rgba(221, 221, 221, .5); /*background-image: url(../images/fwjd_select_li1.png), url(../images/fwjd_select_li2.png), url(../images/fwjd_select_li3.png), url(../images/fwjd_select_li4.png); background-position: left top, right top, left bottom, right bottom;background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;*/
+}
+
+.fwjd .select li:last-child {
+    margin-right: 0
+}
+
+.fwjd .select li a i {
+    display: block;
+    font-size: 64px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+.fwjd .select li a span {
+    display: block;
+    font-size: 16px;
+}
+
+.fwzs {
+}
+
+.fwzs .cacardAnalog {
+}
+
+.fwzs .cacardAnalog .pic {
+    width: 40%;
+    border: solid 1px #868686
+}
+
+.fwzs .cacardAnalog .pic img {
+    width: 100%
+}
+
+.fwzs .cacardAnalog .tBox {
+    margin-left: 60px;
+}
+
+.fwzs .cacardAnalog .tBox p {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.fwzs .cacardAnalog .tBox p span {
+    display: block
+}
+
+.fwzs .cacardAnalog .tBox p.process {
+    display: block;
+    height: 72px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.fwzs .cardInfo {
+    line-height: 32px;
+    border-bottom: dashed 1px #cecece
+}
+
+.fwzs .cardInfo > div {
+}
+
+.fwzs .cardInfo p, .fwzs .cardInfo span {
+    display: block
+}
+
+.fwzs .cardInfo p {
+    font-size: 16px;
+    font-weight: 600
+}
+
+.fwzs .cardInfo span {
+    font-size: 24px;
+    color: #cd0000;
+}
+
+.fwzs .cardPassword {
+}
+
+.fwzs .cardPassword p {
+    font-size: 16px;
+}
+
+.fwzs .cardPassword div {
+    padding: 0 2em;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.fwzs .cardPassword div input[type="text"] {
+    display: block;
+    width: 100%;
+    height: 36px;
+    font-size: 16px;
+}
+
+.qxsm {
+}
+
+.qxsm .smNum {
+    padding-bottom: 15px;
+    border-bottom: dashed 1px #cecece;
+    margin-bottom: 15px;
+}
+
+.qxsm .smNum p {
+    font-size: 16px;
+}
+
+.qxsm .smNum div {
+    padding: 0 2em;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.qxsm .smNum div input[type="text"] {
+    display: block;
+    width: 100%;
+    height: 36px;
+    font-size: 16px;
+}
+
+.qxsm .smUpload {
+    margin-bottom: 15px;
+}
+
+.qxsm .smUpload p {
+    font-size: 16px;
+}
+
+.qxsm .smUpload a {
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 5px;
+    background-color: #000;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.qxsm .smUpload a:hover {
+    background-color: #450a4d
+}
+
+.qxsm .smTips p {
+    line-height: 24px;
+}
+
+.zjjd {
+}
+
+.zjjd .jdNum {
+    padding-bottom: 15px;
+    border-bottom: dashed 1px #cecece;
+    margin-top: 80px;
+    margin-bottom: 15px;
+}
+
+.zjjd .jdNum p {
+    font-size: 16px;
+}
+
+.zjjd .jdNum div {
+    padding: 0 2em;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.zjjd .jdNum div input[type="text"] {
+    display: block;
+    width: 100%;
+    height: 36px;
+    font-size: 16px;
+}
+
+.zjjd .jdPart {
+    margin-top: 75px;
+    margin-bottom: 75px;
+    text-align: center
+}
+
+.zjjd .jdPart a {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.zjjd .jdPart a img {
+    display: block;
+    width: 37px;
+}
+
+.zjjd .zjjd-part-row {
+    margin-bottom: 30px
+}
+
+.zjjd .zjjd-part-row > div {
+    margin-right: 40px;
+}
+
+.zjjd .zjjd-part-row > div:last-child {
+    margin-right: 0;
+}
+
+.zjjd .zjjd-part-row p {
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden
+}
+
+.zjjd .zjjd-part-row p .fl {
+    font-size: 14px;
+}
+
+.zjjd .zjjd-part-row p .fr {
+    font-size: 12px;
+}
+
+.zjjd .zjjd-part-row .jdPartT {
+}
+
+.zjjd .zjjd-part-row .jdPartT img {
+    width: 34px;
+    height: 70px
+}
+
+.zjjd .zjjd-part-row .jdDemo {
+    width: 40%
+}
+
+.zjjd .zjjd-part-row .jdDemo p .fl {
+    color: #313131;
+    margin-left: 5px
+}
+
+.zjjd .zjjd-part-row .jdDemo p .fr {
+    font-weight: 600;
+    margin-right: 5px
+}
+
+.zjjd .zjjd-part-row .jdDemo .pic {
+    height: 150px;
+    border: solid 1px rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.zjjd .zjjd-part-row .jdDemo .pic img {
+    width: 100%
+}
+
+.zjjd .zjjd-part-row .jdUpload {
+    width: 40%
+}
+
+.zjjd .zjjd-part-row .jdUpload .pic {
+    height: 150px;
+    border: solid 1px #e4e4e4;
+    border-radius: 5px;
+    background: #fff url(../images/add.png) center no-repeat;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.zjjd .zjjd-part-row .jdUpload p .fl {
+    font-weight: 600;
+    margin-left: 5px
+}
+
+.zjjd .zjjd-part-row .jdUpload p .fr {
+    color: #0c0c0c;
+    margin-right: 5px
+}
+
+.zjjd .complete {
+    line-height: 48px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.zjjd .complete p {
+    width: 100%;
+    margin-top: 120px;
+}
+
+.csbq {
+    max-width: 680px;
+    height: 670px;
+    padding: 15px 60px 15px 260px;
+    background-color: #f8f8f8;
+    background-image: url(../images/yunBg_black.png), url(../images/t11-1.jpg);
+    background-repeat: repeat, no-repeat;
+    background-position: center, left top;
+    position: relative
+}
+
+.csbq .title {
+    height: 80px;
+    line-height: 80px;
+    padding: 15px 0;
+    margin-bottom: 50px;
+}
+
+.csbq .title .logo {
+    height: 100%;
+}
+
+.csbq .title .logo img {
+    height: 100%
+}
+
+.csbq .title .name {
+    font-size: 20px;
+    color: #545454
+}
+
+.csbq .title-sub {
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 600
+}
+
+.csbq .intr {
+    font-size: 16px;
+    line-height: 24px
+}
+
+.csbq .intr span {
+    display: block
+}
+
+.csbq_box {
+}
+
+.csbq_box .csbqText {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.csbq_box .csbqText.bb {
+    border-bottom: dashed 1px #cecece;
+}
+
+.csbq_box .csbqText p {
+    font-size: 16px;
+}
+
+.csbq_box .csbqText div {
+    padding: 0 2em;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.csbq_box .csbqText div input[type="text"] {
+    display: block;
+    width: 100%;
+    height: 36px;
+    font-size: 16px;
+}
+
+.csbq_box .csbqRadio {
+    margin-bottom: 15px;
+}
+
+.csbq_box .csbqRadio.bb {
+    padding-bottom: 15px;
+    border-bottom: dashed 1px #cecece;
+}
+
+.csbq_box .csbqRadio p {
+    font-size: 16px;
+}
+
+.csbq_box .csbqRadio ul {
+    overflow: hidden
+}
+
+.csbq_box .csbqRadio li {
+    float: left;
+    margin-right: 20px;
+    cursor: pointer
+}
+
+.csbq_box .csbqRadio li i {
+    margin-right: 10px;
+}
+
+.csbq_box .csbqTab {
+    border: solid 1px #efefef;
+    background-color: #fff;
+}
+
+.csbq_box .csbqTab .tab {
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffc146;
+    border-bottom: solid 3px #d71724;
+    text-align: center
+}
+
+.csbq_box .csbqTab .tab dt {
+    padding: 0 28px;
+}
+
+.csbq_box .csbqTab .tab dd {
+    cursor: pointer
+}
+
+.csbq_box .csbqTab .tab dd.activate {
+    background-color: #d71724;
+    color: #fff
+}
+
+.csbq_box .csbqTab .tab dd:last-child {
+    margin-right: 30px;
+}
+
+.csbq_box .csbqTab .tabCons {
+    min-height: 185px;
+    padding: 25px 20px;
+    padding-bottom: 50px;
+    position: relative
+}
+
+.csbq_box .csbqTab .tabCons ul {
+    display: none
+}
+
+.csbq_box .csbqTab .tabCons ul.activate {
+    display: block
+}
+
+.csbq_box .csbqTab .tabCons li {
+    width: 50%;
+    margin-bottom: 20px;
+    float: left;
+}
+
+.csbq_box .csbqTab .tabCons li.text {
+}
+
+.csbq_box .csbqTab .tabCons li.text input[type="text"] {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.csbq_box .csbqTab .tabCons li.text span {
+    display: block;
+    width: 3em;
+    line-height: 40px;
+    font-size: 14px;
+    color: #d71724
+}
+
+.csbq_box .csbqTab .tabCons li.downList {
+    position: relative
+}
+
+.csbq_box .csbqTab .tabCons li.downList dl {
+    width: 80%;
+    height: 38px;
+    line-height: 38px;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background-color: #fff;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 9
+}
+
+.csbq_box .csbqTab .tabCons li.downList dl.activate {
+    z-index: 99
+}
+
+.csbq_box .csbqTab .tabCons li.downList.activate dl {
+    height: auto;
+}
+
+.csbq_box .csbqTab .tabCons li.downList dt {
+    padding-left: 15px;
+    padding-right: 50px;
+    position: relative
+}
+
+.csbq_box .csbqTab .tabCons li.downList dt i {
+    display: block;
+    width: 50px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.csbq_box .csbqTab .tabCons li.downList dd {
+    padding-left: 15px;
+    padding-right: 50px;
+}
+
+.csbq_box .csbqTab .tabCons li.downList dd:hover {
+    background-color: #f8f8f8
+}
+
+.csbq_box .csbqTab .tabCons li p {
+    line-height: 24px;
+}
+
+.csbq_box .csbqTab .tabCons .centerText {
+    line-height: 32px;
+    margin-top: 45px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.csbq_box .csbqTab .tabCons .tip {
+    position: absolute;
+    bottom: 25px;
+}
+
+.bqsq {
+    max-width: 1000px;
+    height: 700px;
+    background-color: #f8f8f8;
+    position: relative;
+}
+
+.bqsq .title {
+    height: 80px;
+    line-height: 80px;
+    padding: 8px 0;
+    margin: 0 50px
+}
+
+.bqsq .title .logo {
+    height: 100%;
+}
+
+.bqsq .title .logo img {
+    height: 100%
+}
+
+.bqsq .title .name {
+    font-size: 20px;
+    color: #545454
+}
+
+.bqsq .bqsq_program {
+    height: 44px;
+    line-height: 44px;
+    padding: 0 100px;
+    background-color: #494642;
+    background-image: url(../images/bqsq_program_bgl.png), url(../images/bqsq_program_bgr.png);
+    background-position: left, right;
+    background-repeat: no-repeat, no-repeat
+}
+
+.bqsq .bqsq_program li {
+    text-align: center;
+    font-size: 18px;
+    color: #928c82
+}
+
+.bqsq .bqsq_program li.activate {
+    color: #fff
+}
+
+.bqsq .bqsq_box {
+    margin: 0 30px;
+    margin-top: 30px;
+}
+
+.bqsq .bqsq_box .pic {
+    width: 30%;
+    margin-right: 30px;
+}
+
+.bqsq .bqsq_box .pic img {
+    width: 100%;
+}
+
+.bqsq .bqsq_box .bqsqMain {
+    margin-right: 30px;
+}
+
+.bqsq .bqsq_box .bqsqMain .tt {
+    font-size: 14px;
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm {
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm li {
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm li.mb10 {
+    margin-bottom: 10px
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm li.mb0 {
+    margin-bottom: 0
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm li p {
+    line-height: 18px;
+    font-weight: 600;
+    overflow: hidden
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm li p .fl {
+    font-weight: 600;
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm li p .fr {
+    font-weight: normal
+}
+
+.bqsq .bqsq_box .bqsqMain input[type="text"].inputText {
+    display: block;
+    height: 38px;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm li .funRow {
+    height: 40px
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm .textIn {
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.bqsq .bqsq_box .bqsqMain .bqsqForm .textIn textarea {
+    width: 98%;
+    padding: 1%;
+    height: 72px;
+    line-height: 24px;
+}
+
+.bqsq .bqsq_box .bqsqMain .downList {
+    position: relative;
+    width: 195px;
+    margin-right: 20px;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    z-index: 9
+}
+
+.bqsq .bqsq_box .bqsqMain .downList.activate {
+    z-index: 99
+}
+
+.bqsq .bqsq_box .bqsqMain .downList dl {
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 5px;
+    background-color: #fff;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.bqsq .bqsq_box .bqsqMain .downList.activate dl {
+    height: auto;
+}
+
+.bqsq .bqsq_box .bqsqMain .downList dt {
+    padding-left: 15px;
+    padding-right: 50px;
+    position: relative
+}
+
+.bqsq .bqsq_box .bqsqMain .downList dt i {
+    display: block;
+    width: 50px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.bqsq .bqsq_box .bqsqMain .downList dd {
+    padding-left: 15px;
+    padding-right: 50px;
+}
+
+.bqsq .bqsq_box .bqsqMain .downList dd:hover {
+    background-color: #f8f8f8
+}
+
+.bqsq .bqsq_box .bqsqMain .upload {
+}
+
+.bqsq .bqsq_box .bqsqMain .upload a {
+    display: block;
+    padding-bottom: 50%;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    background: #fff url(../images/add.png) center no-repeat
+}
+
+.bqsq .bqsq_box .bqsqMain .tips {
+}
+
+.bqsq .bqsq_box .bqsqMain .tips p {
+}
+
+.bqsq .bqsq_box .bqsqMain .tips p.mt60 {
+    margin-top: 60px;
+}
+
+.bqsq .bqsq_box .bqsqMain .tips p.lh14 {
+    line-height: 14px;
+}
+
+.bqsq .bqsq_box .bqsqMain .tips p span {
+    display: block;
+    font-weight: lighter
+}
+
+.bqsq .bqsq_box .bqsqMain .czcgRadio {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.bqsq .bqsq_box .bqsqMain .czcgRadio dt {
+    width: 6em;
+    padding-right: 10px;
+}
+
+.bqsq .bqsq_box .bqsqMain .czcgRadio dd {
+}
+
+.bqsq .bqsq_box .bqsqMain .czcgRadio dd i {
+    margin-right: 0.45rem;
+    font-size: 12px;
+}
+
+.bqsq .bqsq_box .bqsqMain .funRow2 .w100 {
+    width: 100%;
+}
+
+.jdbg {
+}
+
+.jdbg .title {
+    height: 80px;
+    line-height: 80px;
+    padding: 15px;
+}
+
+.jdbg .title .logo {
+    height: 100%;
+}
+
+.jdbg .title .logo img {
+    height: 100%
+}
+
+.jdbg .title .name {
+    font-size: 20px;
+    color: #545454
+}
+
+.jdbg .intr {
+    background-color: #191919;
+    padding: 30px;
+    color: #fff
+}
+
+.jdbg .intr h3 {
+    font-size: 16px;
+    line-height: 48px;
+}
+
+.jdbg .intr h4 {
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.jdbg .intr p {
+    line-height: 24px;
+}
+
+.jdbg .intr span {
+}
+
+.jdbg .content {
+    padding: 30px;
+}
+
+.jdbg .content h3 {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.jdbg .content .pic {
+    border: solid 1px #c9c9c9
+}
+
+.jdbg .content .pic img {
+    display: block;
+    width: 100%;
+}
+
+.jdbg .content p {
+    line-height: 32px;
+}
+
+.jdbg .content p span {
+    display: block
+}
+
+.zszs {
+    padding: 15px;
+    padding-left: 180px;
+    padding-right: 80px;
+    background-color: #fffaef;
+    background-image: url(../images/t11-21.png), url(../images/t11-22.png), url(../images/t11-23.png);
+    background-position: top left, bottom left, center left;
+    background-repeat: no-repeat, no-repeat, repeat-y
+}
+
+.zszs .title {
+    height: 80px;
+    line-height: 80px;
+    padding: 15px 0;
+    position: relative
+}
+
+.zszs .title .logo {
+    height: 80px;
+    position: absolute;
+    left: 0;
+    top: 15px
+}
+
+.zszs .title .logo img {
+    height: 100%
+}
+
+.zszs .title .name {
+    font-size: 20px;
+    color: #545454
+}
+
+.zszs .number {
+}
+
+.zszs .number p {
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.zszs .number span {
+    font-size: 24px;
+    color: #bb1417
+}
+
+.zszs .info {
+}
+
+.zszs .info li {
+    font-size: 18px;
+    line-height: 48px;
+}
+
+.zszs .info li span {
+}
+
+.zszs .intr {
+    color: #161513;
+    font-size: 18px;
+}
+
+.zszs .pic {
+}
+
+.zszs .pic img {
+    display: block;
+    width: 100%;
+}
+
+.zszs .pic p {
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.zszs .pic .col {
+    margin-right: 2%;
+}
+
+.zszs .pic .col:last-child {
+    margin-right: 0;
+}
+
+.zszs .state {
+}
+
+.zszs .state h3 {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.jdsr {
+    height: 100%;
+    padding: 15px;
+    padding-left: 180px;
+    padding-right: 80px; /*background-color: #fffaef;*/
+    background-image: url(../images/t11-21.png), url(../images/t11-22.png), url(../images/t11-23.png);
+    background-position: top left, bottom left, center left;
+    background-repeat: no-repeat, no-repeat, repeat-y
+}
+
+.jdsr .title {
+    height: 80px;
+    line-height: 80px;
+    padding: 15px 0;
+    position: relative
+}
+
+.jdsr .title .logo {
+    height: 80px;
+    position: absolute;
+    left: 0;
+    top: 15px
+}
+
+.jdsr .title .logo img {
+    height: 100%
+}
+
+.jdsr .title .name {
+    font-size: 20px;
+    color: #545454
+}
+
+.jdsr .number {
+    min-height: 48px;
+    padding-left: 120px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 48px;
+    position: relative
+}
+
+.jdsr .number p {
+    display: block;
+    width: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: right;
+    font-size: 14px;
+}
+
+.jdsr .number span {
+    display: block;
+    width: 97%;
+    padding: 0 1.5%;
+    border-radius: 5px;
+    line-height: 46px;
+    font-size: 24px;
+    color: #bb1417
+}
+
+.jdsr .info {
+    padding-bottom: 10px;
+    border-bottom: dashed 1px #ccc;
+    margin-bottom: 20px;
+}
+
+.jdsr .info li {
+    min-height: 48px;
+    padding-left: 120px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 48px;
+    position: relative
+}
+
+.jdsr .info li .titleName {
+    display: block;
+    width: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: right
+}
+
+.jdsr .info li input[type="text"] {
+    display: block;
+    width: 95.5%;
+    padding: 0 1.5%;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    margin-left: 1.5%;
+    line-height: 46px;
+}
+
+.jdsr .info li input[type="text"].wp20 {
+    width: 20%
+}
+
+.jdsr .info li input[type="text"].wp40 {
+    width: 40%
+}
+
+.jdsr .info li textarea {
+    display: block;
+    width: 95.5%;
+    padding: 0 1.5%;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    margin-left: 1.5%;
+    line-height: 46px;
+}
+
+.jdsr .jdsr-part-row {
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.jdsr .jdsr-part-row p {
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden
+}
+
+.jdsr .jdsr-part-row p .fl {
+    font-size: 14px;
+}
+
+.jdsr .jdsr-part-row p .fr {
+    font-size: 12px;
+}
+
+.jdsr .jdsr-part-row .jdUpload {
+    margin-right: 5%;
+    float: left;
+}
+
+.jdsr .jdsr-part-row .jdUpload:last-child {
+    margin-right: 0
+}
+
+.jdsr .jdsr-part-row .jdUpload .pic {
+    min-height: 150px;
+    border: solid 1px #e4e4e4;
+    border-radius: 5px;
+    background: #fff url(../images/add.png) center no-repeat;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.jdsr .jdsr-part-row .jdUpload .pic img {
+    display: block;
+    width: 100%;
+}
+
+.jdsr .jdsr-part-row .jdUpload p .fl {
+    font-weight: 600;
+    margin-left: 5px
+}
+
+.jdsr .jdsr-part-row .jdUpload p .fr {
+    color: #0c0c0c;
+    margin-right: 5px
+}
+
+.jdsr .jdsr-part-row.two .jdUpload {
+    width: 47.5%;
+}
+
+.jdsr .jdsr-part-row.three .jdUpload {
+    width: 30%;
+}
+
+.jdsr .jdsrRadio {
+    min-height: 48px;
+    line-height: 48px;
+    margin-left: 1.5%;
+    font-size: 14px;
+    overflow: hidden
+}
+
+.jdsr .jdsrRadio dd {
+    float: left;
+    margin-right: 20px
+}
+
+.jdsr .jdsrRadio dd i {
+    margin-right: 0.45rem;
+    font-size: 12px;
+}
+
+.jdsr .intr {
+    color: #161513;
+    font-size: 18px;
+}
+
+.jdsr .pic {
+}
+
+.jdsr .pic img {
+    display: block;
+    width: 100%;
+}
+
+.jdsr .pic p {
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.jdsr .pic .col {
+    margin-right: 2%;
+}
+
+.jdsr .pic .col:last-child {
+    margin-right: 0;
+}
+
+.jdsr .state {
+}
+
+.jdsr .state h3 {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.jdsr .tipsText {
+    text-align: center;
+    font-size: 18px;
+    color: #a41313;
+}
+
+.next {
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.next a {
+    display: block;
+    width: 180px;
+    height: 46px;
+    line-height: 46px;
+    background-color: #000;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.next a:hover {
+    background-color: #450a4d
+}
+
+.next.mr60 {
+    margin-right: 60px;
+}
+
+.next2 {
+    right: 6%;
+}
+
+.next2 a {
+    display: block;
+    width: 180px;
+    height: 46px;
+    line-height: 46px;
+    background-color: #000;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.next2 a:hover {
+    background-color: #450a4d
+}
+
+.next2 .confirm {
+    line-height: 46px;
+    cursor: pointer
+}
+
+.next2 .confirm i {
+    margin-right: 5px
+}
+
+.next3 {
+    width: 60%;
+    margin: 0 auto
+}
+
+.next3 a {
+    display: block;
+    width: 180px;
+    height: 46px;
+    line-height: 46px;
+    background-color: #000;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.next3 a:hover {
+    background-color: #450a4d
+}
+
+@media screen and (max-width: 720px) {
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        overflow-y: auto
+    }
+
+    .fwjd {
+        width: auto;
+        min-height: 100%;
+        height: auto;
+        padding: 0;
+        padding-right: 5%;
+        padding-left: 5%;
+        background-attachment: fixed, fixed;
+        background-position: center, -90% top;
+        overflow: hidden
+    }
+
+    .fwjd .title .logo {
+        margin-left: 0
+    }
+
+    .fwjd .select {
+        margin-bottom: 30px;
+    }
+
+    .fwjd .select.EC {
+        display: block
+    }
+
+    .fwjd .select li {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .fwjd .select li a {
+        height: auto;
+        padding: 0;
+    }
+
+    .fwjd .select li a i {
+        padding: 20px 0 10px 0
+    }
+
+    .fwjd .select li a span {
+        padding-bottom: 20px;
+    }
+
+    .fwjd.zjjdPar {
+        width: 70%;
+        padding-left: 25%
+    }
+
+    .fwzs .cacardAnalog.EC {
+        display: block
+    }
+
+    .fwzs .cacardAnalog .pic {
+        width: 100%;
+    }
+
+    .fwzs .cacardAnalog .tBox {
+        margin-left: 0
+    }
+
+    .fwzs .cardInfo.EC {
+        display: block
+    }
+
+    .fwzs .cardInfo p.mb20 {
+        margin: 0
+    }
+
+    .fwzs .cardInfo .col {
+        margin-bottom: 20px
+    }
+
+    .jdsr {
+        height: auto;
+        padding: 15px;
+        padding-left: 60px;
+        padding-right: 10px; /*background-color: #fffaef;*/
+        background-image: url(../images/t11-21.png), url(../images/t11-22.png), url(../images/t11-23.png);
+        background-position: -80px top, -80px bottom, -80px center;
+        background-repeat: no-repeat, no-repeat, repeat-y
+    }
+
+    .jdsr .number {
+        padding-left: 0
+    }
+
+    .jdsr .number p {
+        position: static;
+        text-align: left;
+        line-height: 18px;
+    }
+
+    .jdsr .number span {
+        display: block;
+        padding: 0;
+    }
+
+    .jdsr .info {
+    }
+
+    .jdsr .info li {
+        padding-left: 60px;
+        font-size: 12px;
+    }
+
+    .jdsr .info li .titleName {
+        width: 60px;
+        text-align: left
+    }
+
+    .jdsr .jdsrRadio dd {
+        margin-right: 15px
+    }
+
+    .jdsr .jdsr-part-row p {
+        display:;
+    }
+
+    .jdsr .jdsr-part-row.two .jdUpload {
+        width: 100%
+    }
+
+    .jdsr .jdsr-part-row.three .jdUpload {
+        width: 100%
+    }
+
+    .jdsr .jdsr-part-row .jdUpload {
+        margin-right: 0
+    }
+
+    .zjjd .zjjd-part-row.EC {
+        display: block;
+        padding-left: 40px;
+        position: relative
+    }
+
+    .zjjd .zjjd-part-row > div {
+        margin: 0
+    }
+
+    .zjjd .zjjd-part-row .jdPartT {
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+
+    .zjjd .zjjd-part-row .jdDemo {
+        width: 100%
+    }
+
+    .zjjd .zjjd-part-row .jdDemo .pic {
+        min-height: 95px;
+        height: auto
+    }
+
+    .zjjd .zjjd-part-row .jdUpload {
+        width: 100%
+    }
+
+    .zjjd .zjjd-part-row .jdUpload .pic {
+        min-height: 95px;
+        height: auto
+    }
+
+    .zjjd .complete {
+        font-size: 14px;
+    }
+
+    .zjjd .complete p {
+        margin-top: 90px;
+    }
+
+    .zszs {
+        height: auto;
+        padding: 15px;
+        padding-left: 60px;
+        padding-right: 10px; /*background-color: #fffaef;*/
+        background-image: url(../images/t11-21.png), url(../images/t11-22.png), url(../images/t11-23.png);
+        background-position: -80px top, -80px bottom, -80px center;
+        background-repeat: no-repeat, no-repeat, repeat-y
+    }
+
+    .zszs .number.EC {
+        display: block;
+    }
+
+    .zszs .number.EC .col {
+        margin-bottom: 20px;
+    }
+
+    .zszs .info li {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .zszs .intr {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .zszs .state h3 {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .bqsq {
+        height: auto
+    }
+
+    .bqsq .title {
+        height: 40px;
+        line-height: 40px;
+        margin: 0 10px
+    }
+
+    .bqsq .title .name {
+    }
+
+    .bqsq .bqsq_box {
+        margin: 10px
+    }
+
+    .bqsq .bqsq_box .bqsqMain {
+        margin-right: 0
+    }
+
+    .bqsq .bqsq_box .bqsqMain .bqsqForm li p {
+        margin-bottom: 10px;
+    }
+
+    .bqsq .bqsq_box .bqsqMain .bqsqForm .funRow2.EC {
+        display: block
+    }
+
+    .bqsq .bqsq_box .bqsqMain .bqsqForm .funRow2 .mr20 {
+        margin-right: 0
+    }
+
+    .bqsq .bqsq_box .bqsqMain .upload {
+        margin-bottom: 20px;
+    }
+
+    .bqsq .bqsq_program {
+        padding: 0 15px;
+        background-position: -32% center, 132% center;
+    }
+
+    .bqsq .bqsq_program li {
+        font-size: 12px;
+    }
+
+    .bqsq .bqsq_box .pic {
+        display: none
+    }
+
+    .bqsq .bqsq_box .bqsqMain .downList {
+        width: 150px;
+    }
+
+    .bqsq .bqsq_box .bqsqMain .czcgRadio {
+        height: auto;
+        overflow: hidden;
+        padding-top: 40px;
+        position: relative
+    }
+
+    .bqsq .bqsq_box .bqsqMain .czcgRadio.EC {
+        display: block;
+    }
+
+    .bqsq .bqsq_box .bqsqMain .czcgRadio.EC .col {
+        float: left;
+        width: 25%;
+    }
+
+    .bqsq .bqsq_box .bqsqMain .czcgRadio dt {
+        height: 24px;
+        line-height: 24px;
+        position: absolute;
+        top: 16px;
+        left: 0
+    }
+
+    .csbq {
+        width: auto;
+        min-height: 100%;
+        height: auto;
+        padding: 0 20px;
+        background-attachment: fixed, fixed;
+        background-position: center, -90% top;
+        overflow: hidden
+    }
+
+    .csbq .title {
+        margin-bottom: 20px
+    }
+
+    .csbq .title .logo {
+        margin-left: 0
+    }
+
+    .csbq_box .csbqTab .tab dt {
+        padding: 0 10px;
+    }
+
+    .csbq_box .csbqTab .tab dd:last-child {
+        margin-right: 10px
+    }
+
+    .fwjd .title, .csbq .title {
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .next a {
+        width: 110px;
+    }
+
+    .bqsq .next.mr60 {
+        margin-right: 10px;
+    }
+
+    .next2 a {
+        width: 110px
+    }
+}

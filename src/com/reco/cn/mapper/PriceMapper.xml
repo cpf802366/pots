@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.PriceDao">
+
+    <select id="get" resultType="com.reco.cn.domain.PriceDO">
+        select `price_id`,`design_id`,`price`,`update_date`,`update_by` from pot_price where price_id = #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.PriceDO">
+        select `price_id`,`design_id`,`price`,`update_date`,`update_by` from pot_price
+        <where>
+            <if test="priceId != null and priceId != ''">and price_id = #{priceId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="updateDate != null and updateDate != ''">and update_date = #{updateDate}</if>
+            <if test="updateBy != null and updateBy != ''">and update_by = #{updateBy}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by price_id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from pot_price
+        <where>
+            <if test="priceId != null and priceId != ''">and price_id = #{priceId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="updateDate != null and updateDate != ''">and update_date = #{updateDate}</if>
+            <if test="updateBy != null and updateBy != ''">and update_by = #{updateBy}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.PriceDO">
+        insert into pot_price
+        (
+        `price_id`,
+        `design_id`,
+        `price`,
+        `update_date`,
+        `update_by`
+        )
+        values
+        (
+        #{priceId},
+        #{designId},
+        #{price},
+        #{updateDate},
+        #{updateBy}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.PriceDO">
+        update pot_price
+        <set>
+            <if test="designId != null">`design_id` = #{designId},</if>
+            <if test="price != null">`price` = #{price},</if>
+            <if test="updateDate != null">`update_date` = #{updateDate},</if>
+            <if test="updateBy != null">`update_by` = #{updateBy}</if>
+        </set>
+        where price_id = #{priceId}
+    </update>
+
+    <delete id="remove">
+        delete from pot_price where price_id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from pot_price where price_id in
+        <foreach item="priceId" collection="array" open="(" separator="," close=")">
+            #{priceId}
+        </foreach>
+    </delete>
+
+</mapper>

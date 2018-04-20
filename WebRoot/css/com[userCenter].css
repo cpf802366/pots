@@ -1,0 +1,770 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main {
+    border-top: solid 3px #612465;
+}
+
+.mr30 {
+    margin-right: 30px;
+}
+
+.ml30 {
+    margin-left: 30px;
+}
+
+.hallContent {
+    width: 1000px;
+    margin: 0 auto
+}
+
+.hallContent .node {
+    height: 125px;
+}
+
+.hallContent .node li {
+    height: 25px;
+    line-height: 25px;
+    padding: 0 20px;
+    margin: 50px 0;
+    font-size: 18px;
+    color: #ac82b0;
+    font-weight: 800
+}
+
+.hallContent .node li.active {
+    color: #58225c;
+}
+
+.hallContent .node .col {
+    padding: 0;
+    position: relative;
+}
+
+.hallContent .node .col::before {
+    display: block;
+    content: " ";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 11px;
+    background-color: #bfbfbf
+}
+
+.jdsr {
+    width: 1000px;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+    background: none
+}
+
+.jdsr .info {
+    border: none
+}
+
+.zszs {
+    width: 1000px;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+    background: none
+}
+
+.zszs .zsback {
+    padding: 30px;
+    background-color: #fffaf0;
+}
+
+.next2 {
+    padding-top: 50px;
+    border-top: dashed 1px #ccc;
+    margin-top: 50px;
+}
+
+.next2.bn {
+    padding: 0;
+    border: none;
+}
+
+.getBtn {
+    margin-top: 10%
+}
+
+.getBtn a {
+    display: block;
+    width: 440px;
+    height: 165px;
+    line-height: 165px;
+    margin: 0 auto;
+    background-color: #702c7e;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    color: #fff
+}
+
+.getBtn a:hover, .getBtn a.active {
+    background-color: #ff5300;
+}
+
+.zsNumber {
+}
+
+.zsNumber .number {
+    min-height: 48px;
+    padding-left: 120px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 48px;
+    position: relative
+}
+
+.zsNumber .number p {
+    display: block;
+    width: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: right;
+    font-size: 14px;
+}
+
+.zsNumber .number span {
+    display: block;
+    width: 97%;
+    padding: 0 1.5%;
+    border-radius: 5px;
+    line-height: 46px;
+    font-size: 24px;
+    color: #bb1417
+}
+
+.hall-bz {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative
+}
+
+.hall-bz .next4 {
+    width: 100%;
+    padding-top: 50px;
+    border-top: dashed 1px #ccc;
+    margin-top: 50px;
+    position: absolute;
+    bottom: 0;
+}
+
+.hall-bz .next4 a {
+    display: block;
+    width: 180px;
+    height: 46px;
+    line-height: 46px;
+    background-color: #000;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+.hall-bz .next4 a:hover {
+    background-color: #450a4d
+}
+
+.hall-dz {
+    width: 815px;
+    margin: 0 auto;
+    position: relative
+}
+
+.userCenter {
+}
+
+.userCenter .title {
+}
+
+.userCenter .title h1 {
+    padding: 60px 0;
+    font-size: 2em
+}
+
+.userCenter .title h2 {
+    padding: 25px 0 20px 0;
+    font-size: 2em
+}
+
+.userCenter .title span {
+    display: block;
+    font-size: 1.75em;
+}
+
+.userCenter ul.buttonBar {
+}
+
+.userCenter ul.buttonBar li {
+    float: left;
+    width: 304px;
+    padding: 35px 10px;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: #702c7e;
+    color: #fff;
+    cursor: pointer
+}
+
+.userCenter ul.buttonBar li:hover {
+    background-color: #ff5300;
+}
+
+.userCenter ul.buttonBar li:nth-child(3n) {
+    margin-right: 0
+}
+
+.userCenter ul.buttonBar li a {
+    display: block;
+    color: #fff;
+    position: relative
+}
+
+.userCenter ul.buttonBar li .info {
+    margin-left: 58px
+}
+
+.userCenter ul.buttonBar li .info h4 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: lighter
+}
+
+.userCenter ul.buttonBar li .info span {
+    display: block;
+}
+
+.userCenter ul.shdzList {
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.userCenter ul.shdzList li {
+    float: left;
+    width: 396px;
+    padding: 1px;
+    border: 1px solid #949494;
+    background: #ccc;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.userCenter ul.shdzList li.addNew {
+    width: 394px;
+    padding: 0;
+    border: 3px dashed #949494;
+    background: #fff
+}
+
+.userCenter ul.shdzList li.addNew a {
+    display: block;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    color: #606060
+}
+
+.userCenter ul.shdzList li.addNew a:hover {
+    color: #777
+}
+
+.userCenter ul.shdzList li:nth-child(2n) {
+    margin-right: 0
+}
+
+.userCenter ul.shdzList li .con {
+    width: 314px;
+    height: 300px;
+    padding: 0 40px;
+    border: 1px solid #949494;
+    background-color: #fff;
+    font-size: 18px;
+    position: relative
+}
+
+.userCenter ul.shdzList li .con .info {
+    padding-top: 25px;
+}
+
+.userCenter ul.shdzList li .con .target {
+    line-height: 44px;
+    padding: 0 40px;
+    border-bottom: 1px solid #949494;
+    margin: 0 -40px;
+}
+
+.userCenter ul.shdzList li .con .info h5, .userCenter ul.shdzList li .con .target h5 {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.userCenter ul.shdzList li .con .info p {
+    margin: 5px 0
+}
+
+.userCenter ul.shdzList li .con .info p span {
+    padding-right: 10px;
+}
+
+.userCenter ul.shdzList li .con .btns {
+    width: 100%;
+    font-weight: bolder;
+    position: absolute;
+    bottom: 25px;
+    left: 40px
+}
+
+.userCenter ul.shdzList li .con .btns a {
+    display: block;
+    float: left;
+    margin-right: 25px;
+    color: #702c7e;
+}
+
+.shdzForm {
+    margin: 0 auto;
+}
+
+.shdzForm h1 {
+}
+
+.shdzForm a {
+    color: #5f2962
+}
+
+.shdzForm dl.inputText {
+}
+
+.shdzForm dl.inputText {
+}
+
+.shdzForm dl.inputText dt {
+    font-weight: bolder;
+    line-height: 2em;
+}
+
+.shdzForm dl.inputText dt .forgetKey {
+    font-weight: normal;
+    float: right
+}
+
+.shdzForm dl.inputText dd {
+    margin: 0 -1px
+}
+
+.shdzForm dl.inputText dd input[type="text"] {
+    width: 90%;
+    height: 42px;
+    padding: 0 5%;
+    border: 1px solid #949494;
+}
+
+.shdzForm dl.inputText dd input[type="text"]:focus {
+    border-color: #5f2962;
+}
+
+.shdzForm dl.inputText dd .drop-down {
+    width: 265px;
+    height: 44px;
+}
+
+.shdzForm dl.inputText dd .drop-down .btn {
+    height: 42px;
+    line-height: 42px;
+    padding: 0 15px;
+    border: solid 1px #949494;
+    background: #eff0f3;
+    background: -webkit-linear-gradient(top, #f7f8fa, #e7e9ec);
+    background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+}
+
+.shdzForm dl.inputText dd .drop-down .btn i {
+    float: right
+}
+
+.shdzForm dl.inputText dd .drop-down .list {
+    display: none;
+    border: solid 1px #949494;
+    position: relative;
+    top: -1px;
+    z-index: 999;
+    background: #ffff;
+}
+
+.shdzForm dl.inputText dd .drop-down .list ul {
+    max-height: 12em;
+    overflow-y: auto;
+}
+
+.shdzForm dl.inputText dd .drop-down .list li {
+    padding: 0 15px;
+    line-height: 3em;
+    cursor: pointer
+}
+
+.shdzForm dl.inputText dd .drop-down .list li:hover {
+    background: #f0f0f0
+}
+
+.shdzForm .shdzForm-Btn {
+    display: block;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.shdzForm .shdzForm-Btn.btnColor-violet {
+    background-color: #702c7e;
+    color: #fff
+}
+
+.shdzForm .shdzForm-Btn.btnColor-gray {
+    background-color: #eff1f3;
+    color: #000
+}
+
+.shdzForm .customOption {
+    vertical-align: middle
+}
+
+.shdzForm .customOption input[type="checkbox"], .loginIndex .customOption i {
+    display: inline-block;
+    margin-right: 1em;
+    position: relative;
+    top: 2px;
+}
+
+.shdzForm .shdzForm-Btn .customOption a {
+    display: inline-block;
+    margin-right: 1em
+}
+
+.shdzForm .lineTitle {
+    height: 42px;
+    position: relative;
+    text-align: center
+}
+
+.shdzForm .lineTitle::after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #e8e8e8;
+    position: absolute;
+    top: 20px;
+    z-index: -1
+}
+
+.shdzForm .lineTitle span {
+    line-height: 42px;
+    padding: 0 20px;
+    margin: 0 auto;
+    background-color: #fff
+}
+
+.shdzForm .tips {
+}
+
+.shdzForm dl.tips {
+}
+
+.shdzForm dl.tips dt {
+    font-weight: bolder
+}
+
+.shdzForm dl.tips dd {
+    padding-left: 1em;
+    position: relative
+}
+
+.shdzForm dl.tips dd::before {
+    display: block;
+    content: "·";
+    width: 0.64em;
+    height: 0.64em;
+    line-height: 0.64em;
+    font-weight: bolder;
+    position: absolute;
+    top: 0.3em;
+    left: 0.32em;
+}
+
+.shdzForm .showInfo {
+    padding: 60px 50px 30px 50px;
+    border: 1px solid #949494;
+}
+
+.shdzForm .showInfo p {
+    font-size: 18px
+}
+
+.shdzForm .showInfo a.btn {
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 20px;
+    border: 1px solid #949494;
+    color: #000;
+    background: #e7e9ec;
+    background: -webkit-linear-gradient(top, #fcfcfd, #e7e9ec);
+    background: linear-gradient(to bottom, #fcfcfd, #e7e9ec);
+}
+
+.dlaq {
+}
+
+.dlaq dl {
+    padding: 35px 15px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.dlaq dl dt {
+    padding-bottom: 20px;
+    overflow: hidden;
+    line-height: 32px;
+}
+
+.dlaq dl dt h1 {
+    float: left;
+    padding-right: 10px;
+    font-size: 24px;
+}
+
+.dlaq dl dt i {
+    float: left;
+    font-size: 24px;
+}
+
+.dlaq dl dt i.icon-ziyuan {
+    color: #40a455
+}
+
+.dlaq dl dt i.icon-ziyuan1 {
+    color: #ff5300
+}
+
+.dlaq dl dt a {
+    float: right;
+    color: #702c7e
+}
+
+.dlaq dl dd {
+    overflow: hidden
+}
+
+.dlaq dl dd p {
+    font-size: 18px;
+}
+
+.dlaq dl dd .level {
+    line-height: 24px;
+}
+
+.dlaq dl dd .level span, .dlaq dl dd .level div {
+    display: block;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.dlaq dl dd .level span:last-child {
+    color: #40a455;
+}
+
+.dlaq dl dd .level .ooo {
+    width: 100px;
+    margin: 0 10px;
+    background-color: #e8e8e8
+}
+
+.dlaq dl dd .level .iii {
+    width: 75%;
+    background-color: #40a455
+}
+
+.dlaq .tips {
+    padding: 85px 15px;
+    line-height: 2em
+}
+
+.dlaq .tips h5 {
+    font-size: 18px;
+    font-weight: bolder
+}
+
+.dlaq .tips p {
+    font-size: 14px;
+}
+
+.zhzx .yeBox {
+    height: 110px;
+    line-height: 110px;
+    padding: 0 25px;
+    border: 1px solid #5f2b62;
+    background-color: #fff6fb
+}
+
+.zhzx .yeBox a {
+    color: #702c7e;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-right: 40px;
+}
+
+.zhzx .yeBox .ye {
+    font-size: 24px;
+}
+
+.zhzx .pay {
+    padding: 30px 0
+}
+
+.zhzx .pay li {
+    width: 261px;
+    height: 60px;
+    margin-right: 15px;
+    text-align: center
+}
+
+.zhzx .pay li:last-child {
+    margin-right: 0
+}
+
+.zhzx .pay li img {
+    height: 100%;
+    display: inline
+}
+
+.zhzx .bankcardList {
+    padding: 60px 0;
+}
+
+.zhzx .bankcardList li.addNew {
+    width: 394px;
+    padding: 0;
+    border: 3px dashed #949494;
+    background: #fff;
+    margin: 0 auto
+}
+
+.zhzx .bankcardList li.addNew a {
+    display: block;
+    height: 186px;
+    line-height: 186px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    color: #606060
+}
+
+.zhzx .bankcardList li.addNew a:hover {
+    color: #777
+}
+
+.win .winMain.tips {
+    width: 560px;
+    height: 440px;
+}
+
+.win .winMain.tips .closeBtn {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    background: none;
+    color: #5a5a5a;
+    position: static;
+}
+
+.win .winMain.tips .box {
+    position: relative
+}
+
+.win .winMain.tips .title {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #c6c6c6;
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    background: #fafafb;
+    background: -webkit-linear-gradient(top, #fafafb, #eaeaea);
+    background: linear-gradient(to bottom, #fafafb, #eaeaea);
+}
+
+.win .winMain.tips .title i {
+    font-weight: bolder
+}
+
+.win .winMain.tips .info {
+    padding: 98px 40px;
+}
+
+.win .winMain.tips .info h5 {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.win .winMain.tips .info p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.win .winMain.tips .info p span {
+    padding-right: 10px;
+}
+
+.win .winMain.tips .bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 0
+}
+
+.win .winMain.tips .bottom .tips {
+    padding: 0 40px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #767676
+}
+
+.win .winMain.tips .bottom .btns {
+    padding: 20px 40px;
+    border-top: 1px solid #e7e7e7;
+    text-align: center
+}
+
+.win .winMain.tips .bottom .btns a {
+    display: inline-block;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    font-size: 18px;
+}
+
+.win .winMain.tips .bottom .btns .cancel {
+    border-color: #adb1b8;
+    background-color: #e9ebed;
+    color: #000
+}
+
+.win .winMain.tips .bottom .btns .confirm {
+    border-color: #702c7e;
+    background-color: #702c7e;
+    color: #fff
+}

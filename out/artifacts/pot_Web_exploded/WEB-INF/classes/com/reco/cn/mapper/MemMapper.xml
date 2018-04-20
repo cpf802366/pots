@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reco.cn.dao.MemDao">
+
+    <select id="get" resultType="com.reco.cn.domain.MemDO">
+        select
+        `id`,`address`,`brithday`,`email`,`fuage`,`idcard`,`img`,`name`,`nickname`,`password`,`phone`,`postcode`,`qq`,`sex`
+        from user_mem where id = #{value}
+    </select>
+
+    <select id="list" resultType="com.reco.cn.domain.MemDO">
+        select
+        `id`,`address`,`brithday`,`email`,`fuage`,`idcard`,`img`,`name`,`nickname`,`password`,`phone`,`postcode`,`qq`,`sex`
+        from user_mem
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="address != null and address != ''">and address = #{address}</if>
+            <if test="brithday != null and brithday != ''">and brithday = #{brithday}</if>
+            <if test="email != null and email != ''">and email = #{email}</if>
+            <if test="fuage != null and fuage != ''">and fuage = #{fuage}</if>
+            <if test="idcard != null and idcard != ''">and idcard = #{idcard}</if>
+            <if test="img != null and img != ''">and img = #{img}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="nickname != null and nickname != ''">and nickname = #{nickname}</if>
+            <if test="password != null and password != ''">and password = #{password}</if>
+            <if test="phone != null and phone != ''">and phone = #{phone}</if>
+            <if test="postcode != null and postcode != ''">and postcode = #{postcode}</if>
+            <if test="qq != null and qq != ''">and qq = #{qq}</if>
+            <if test="sex != null and sex != ''">and sex = #{sex}</if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from user_mem
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="address != null and address != ''">and address = #{address}</if>
+            <if test="brithday != null and brithday != ''">and brithday = #{brithday}</if>
+            <if test="email != null and email != ''">and email = #{email}</if>
+            <if test="fuage != null and fuage != ''">and fuage = #{fuage}</if>
+            <if test="idcard != null and idcard != ''">and idcard = #{idcard}</if>
+            <if test="img != null and img != ''">and img = #{img}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="nickname != null and nickname != ''">and nickname = #{nickname}</if>
+            <if test="password != null and password != ''">and password = #{password}</if>
+            <if test="phone != null and phone != ''">and phone = #{phone}</if>
+            <if test="postcode != null and postcode != ''">and postcode = #{postcode}</if>
+            <if test="qq != null and qq != ''">and qq = #{qq}</if>
+            <if test="sex != null and sex != ''">and sex = #{sex}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.reco.cn.domain.MemDO" useGeneratedKeys="true" keyProperty="id">
+        insert into user_mem
+        (
+        `address`,
+        `brithday`,
+        `email`,
+        `fuage`,
+        `idcard`,
+        `img`,
+        `name`,
+        `nickname`,
+        `password`,
+        `phone`,
+        `postcode`,
+        `qq`,
+        `sex`
+        )
+        values
+        (
+        #{address},
+        #{brithday},
+        #{email},
+        #{fuage},
+        #{idcard},
+        #{img},
+        #{name},
+        #{nickname},
+        #{password},
+        #{phone},
+        #{postcode},
+        #{qq},
+        #{sex}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.reco.cn.domain.MemDO">
+        update user_mem
+        <set>
+            <if test="address != null">`address` = #{address},</if>
+            <if test="brithday != null">`brithday` = #{brithday},</if>
+            <if test="email != null">`email` = #{email},</if>
+            <if test="fuage != null">`fuage` = #{fuage},</if>
+            <if test="idcard != null">`idcard` = #{idcard},</if>
+            <if test="img != null">`img` = #{img},</if>
+            <if test="name != null">`name` = #{name},</if>
+            <if test="nickname != null">`nickname` = #{nickname},</if>
+            <if test="password != null">`password` = #{password},</if>
+            <if test="phone != null">`phone` = #{phone},</if>
+            <if test="postcode != null">`postcode` = #{postcode},</if>
+            <if test="qq != null">`qq` = #{qq},</if>
+            <if test="sex != null">`sex` = #{sex}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="remove">
+        delete from user_mem where id = #{value}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from user_mem where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
