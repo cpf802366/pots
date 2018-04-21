@@ -50,4 +50,18 @@ public class MemAddrServiceImpl implements MemAddrService {
         return memAddrDao.batchRemove(ids);
     }
 
+    @Override
+    public void defaultDz(Integer id, Map<String, Object> map) {
+        List<MemAddrDO> list = memAddrDao.list(map);
+        for (MemAddrDO memAddrDo:list) {
+             if (memAddrDo.getId() .equals(id)  ){
+                 memAddrDo.setDefaultdz(1);
+             }else{
+                 memAddrDo.setDefaultdz(0);
+             }
+            memAddrDao.update(memAddrDo);
+        }
+    }
+
+
 }

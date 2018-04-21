@@ -23,4 +23,7 @@
 </head>
 
 <body onload="javascript:window.location='<%=basePath%>index'"></body>
+<!--
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  -->
 </html>

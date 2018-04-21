@@ -183,8 +183,9 @@ public class MemAddrDO implements Serializable {
 
     /**
      * 获取：
+     * @param userid
      */
-    public Integer getUserid() {
-        return userid;
+    public Integer getUserid(Integer userid) {
+        return this.userid;
     }
 }

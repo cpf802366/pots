@@ -25,4 +25,6 @@ public interface MemAddrService {
     int remove(Integer id);
 
     int batchRemove(Integer[] ids);
+
+    void defaultDz (Integer id,Map<String, Object> map);
 }

@@ -9,6 +9,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui"/>
+
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>紫砂版权网</title>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_378986_agapjrjbkn50o1or.css">

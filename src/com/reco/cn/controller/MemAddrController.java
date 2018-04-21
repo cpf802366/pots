@@ -58,19 +58,28 @@ public class MemAddrController {
     String edit(@PathVariable("id") Integer id, Model model) {
         MemAddrDO memAddr = memAddrService.get(id);
         model.addAttribute("memAddr", memAddr);
-        return "cn/memAddr/edit";
+        return "front/user/usershdz_add";
     }
 
     /**
      * 保存
      */
-    @ResponseBody
+
     @RequestMapping("/save")
-    public R save(MemAddrDO memAddr) {
-        if (memAddrService.save(memAddr) > 0) {
-            return R.ok();
+    public ModelAndView save(MemAddrDO memAddr, HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+
+        if(memAddr.getId() != null && memAddr.getId() != 0){
+            memAddrService.update(memAddr);
+        }else{
+            UserDO  userDao = (UserDO) session.getAttribute(UserConstant.USER);
+            Integer userid =  userDao.getUser_id().intValue();
+            memAddr.getUserid(userid );
+            memAddrService.save(memAddr);
         }
-        return R.error();
+   mv.setViewName("redirect:/memAddr/listByUser");
+
+        return mv;
     }
 
     /**
@@ -86,13 +95,13 @@ public class MemAddrController {
     /**
      * 删除
      */
-    @RequestMapping("/remove")
-    @ResponseBody
-    public R remove(Integer id) {
-        if (memAddrService.remove(id) > 0) {
-            return R.ok();
-        }
-        return R.error();
+    @RequestMapping("/remove/{id}")
+
+    public String remove(@PathVariable("id") Integer id) {
+        memAddrService.remove(id)  ;
+
+
+        return "redirect:/memAddr/listByUser";
     }
 
     /**
@@ -117,5 +126,19 @@ public class MemAddrController {
         mv.addObject("memAddrList", memAddrList);
         mv.setViewName("front/user/usershdz");
         return mv;
+    }
+
+    /**
+     * 删除
+     */
+    @RequestMapping("/defaultDz/{id}")
+
+    public String defaultDz(@PathVariable("id") Integer id,HttpSession session) {
+        UserDO userDO = (UserDO) session.getAttribute(UserConstant.USER);
+        Map<String, Object> params = new HashMap<>();
+        params.put("userid", userDO.getUser_id());
+        Query query = new Query(params);
+        memAddrService.defaultDz(id,query);
+        return "redirect:/memAddr/listByUser";
     }
 }
