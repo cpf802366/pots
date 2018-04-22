@@ -1,6 +1,7 @@
 package com.reco.cn.controller;
 
 import com.aliyuncs.exceptions.ClientException;
+import com.reco.cn.author.AuthPermission;
 import com.reco.cn.constant.UserConstant;
 import com.reco.cn.domain.UserDO;
 import com.reco.cn.service.UserService;
@@ -58,7 +59,7 @@ public class LoginController {
         return mv;
 
     }
-
+    @AuthPermission(validate=true)
     @RequestMapping("/usercenter")
     ModelAndView usercenter(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();

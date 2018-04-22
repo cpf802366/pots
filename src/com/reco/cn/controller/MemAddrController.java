@@ -141,4 +141,22 @@ public class MemAddrController {
         memAddrService.defaultDz(id,query);
         return "redirect:/memAddr/listByUser";
     }
+
+    @RequestMapping("/shdzselected")
+    public ModelAndView shdzselected(HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        Map<String, Object> params = new HashMap<>();
+        UserDO userDO = (UserDO) session.getAttribute(UserConstant.USER);
+        params.put("userid", userDO.getUser_id());
+        Query query = new Query(params);
+        List<MemAddrDO> memAddrList = memAddrService.list(query);
+        if (memAddrList != null && memAddrList.size()>0){
+            mv.addObject("memAddrList", memAddrList);
+            mv.setViewName("front/user/shdzselected");
+        }else{
+            mv.setViewName("redirect:listByUser");
+        }
+
+        return mv;
+    }
 }

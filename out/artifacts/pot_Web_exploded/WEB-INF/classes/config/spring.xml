@@ -51,10 +51,10 @@
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
-    <mvc:resources mapping="/image/**" location="/image/"/>
-    <mvc:resources mapping="/assets/**" location="/assets/"/>
+
+
     <mvc:resources mapping="/fonts/**" location="/fonts/"/>
-    <mvc:resources mapping="/common/**" location="/common/"/>
+
     <mvc:resources mapping="/compent/**" location="/compent/"/>
     <mvc:resources mapping="/layui/**" location="/layui/"/>
     <mvc:resources mapping="/pages/**" location="/pages/"/>
@@ -70,6 +70,19 @@
     <mvc:default-servlet-handler/>
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
     <mvc:default-servlet-handler/>
+
+
+    <mvc:interceptors>
+        <!-- 国际化操作拦截器 如果采用基于（请求/Session/Cookie）则必需配置  -->
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+        <!-- 如果不定义 mvc:mapping path 将拦截所有的URL请求 -->
+        <bean class="com.reco.cn.author.AuthInterceptor">
+            <property name ="authKey" value ="user" ></property>
+
+            <property name ="toUrl" value ="/login/tologin" ></property>
+        </bean>
+    </mvc:interceptors>
+
 
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

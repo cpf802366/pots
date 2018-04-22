@@ -254,6 +254,14 @@
 }
 
 .myhu .buttons a:hover {
-    background-color: #ff530
+    background-color: #ff530;
+}
+.lefticon{
+    margin-left: -95px;
+    margin-top: 5px;
 
+
+    float: left;
+
+}
 

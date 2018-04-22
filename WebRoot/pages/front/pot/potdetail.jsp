@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@    taglib prefix="c" uri="/WEB-INF/tld/c.tld" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <c:set var="ctx" value="${pageContext.request.contextPath}/" scope="request"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -91,7 +95,7 @@
     <div class="uum">
         <p class="ffa">当前价格</p>
         <p class="ffb">${design.price}</p>
-        <a class="ffc">我要竞价</a>
+        <a class="ffc" href="<%=basePath%>memAddr/shdzselected">我要竞价</a>
     </div>
     <div class="number EC mb30">
         <div class="col mr20">

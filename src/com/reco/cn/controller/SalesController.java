@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("/cn/sales")
+@RequestMapping(" /sales")
 public class SalesController {
     @Autowired
     private SalesService salesService;
@@ -99,5 +100,11 @@ public class SalesController {
         salesService.batchRemove(soIds);
         return R.ok();
     }
-
+    @RequestMapping("/zffs/{id}")
+   public ModelAndView zffs(@PathVariable("id") Integer id){
+       ModelAndView mv = new ModelAndView();
+       mv.addObject("shdz",id);
+       mv.setViewName("front/sales/saleszffs");
+       return mv;
+   }
 }

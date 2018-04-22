@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@    taglib prefix="c" uri="/WEB-INF/tld/c.tld" %>
+<%@    taglib prefix="fn" uri="/WEB-INF/tld/fn.tld" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -25,9 +26,16 @@
     <link rel="stylesheet" href="${ctx}css/com[userCenter].css">
     <link rel="stylesheet" href="${ctx}css/com[phone].css">
     <link rel="stylesheet" href="${ctx}css/com[animation].css">
-
+    <link rel="stylesheet" href="${ctx}css/com[salesProcess].css">
     <script type="text/javascript" src="${ctx}js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="${ctx}js/js.js"></script>
+
+
+
+
+
+    <script type="text/javascript" src="javascript/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="javascript/js.js"></script>
 </head>
 
 <body>
@@ -44,7 +52,7 @@
         <div class="myhu">
             <div class="mb20">
                 <h2 class="fcViolet">
-                    现有紫砂壶<span>2</span>个，出售<span>0</span>个
+                    现有紫砂壶<span>${fn:length(myhuList) } </span>个，出售<span>0</span>个
                 </h2>
             </div>
             <c:forEach var="t" items="${myhuList}" varStatus="status">
@@ -55,13 +63,13 @@
                     </h3>
                     <div class="cc pc_EC">
                         <div class="huImg">
-                            <img src="${t.design_img}" width="360"/>
+                            <img src="${t.design_img}"  />
                         </div>
                         <div class="huInfo pc_col">
                             <h2 class="mb20">紫砂壶《${t.design_name }》</h2>
                             <h3 class="mb10">购买价格：¥${t.po_price_str}</h3>
                             <h3 class="mb10">紫砂壶鉴定证号：NO.${t.jdzh}</h3>
-                            <a class="btn">${t.taken?"":"未提货" }</a>
+                            <h3 class="btn">${t.taken?"":"未提货" }</h3>
                         </div>
                     </div>
                     <div class="ct">
@@ -82,46 +90,15 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <a href="salesProcess_3.html">出售</a> <a href="salesProcess_3.html">取壶</a>
+                    <a href="salesProcess_3.html">出售</a>
+                    <a href="<%=basePath%>memAddr/shdzselected">取壶</a>
                 </div>
             </c:forEach>
 
         </div>
     </div>
 </div>
-<div class="footer lineStyle-top">
-    <div class="footer-bg bgStyle-white">
-        <div class="declare">
-            <p>
-                <a>江苏省委宣传部</a> <span>/</span> <a>江苏省发展和改革委员会</a> <span>/</span> <a>江苏省商务厅</a>
-                <span>/</span> <a>江苏省文化厅</a> <span>/</span> <a>江苏省广播电视局</a> <span>/</span>
-                <a>江苏省新闻出版局</a>
-            </p>
-            <p>© COPYRIGHT 2017 江苏紫金文创新传媒股份有限公司 苏ICP备07000608号</p>
-        </div>
-    </div>
-</div>
-<div class="menu dn retract">
-    <div class="list">
-        <ul>
-            <li><img src="/images/jdpart2.png" width="100%"> <a
-                    class="menu-button-close"><i
-                    class="iconfont icon-xiangyoujiantou"></i></a></li>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">机构介绍</a></li>
-            <li><a href="#">紫砂艺人</a></li>
-            <li><a href="#">紫砂作品</a></li>
-            <li><a href="#">版权交易</a></li>
-            <li><a href="#">行业资讯</a></li>
-            <li><a href="#">紫砂专家</a></li>
-            <li><a href="#">紫砂泥料</a></li>
-            <li><a href="#">退出登录</a></li>
-        </ul>
-        <p>
-            <span>© 紫砂版权网 ,</span> <span>powered by 江苏紫金文创新传媒股份有限公司 </span>
-        </p>
-    </div>
-</div>
+<jsp:include page="/pages/footer-nav.jsp"></jsp:include>
 <!--menu end-->
 <script>
     $(function () {
@@ -130,10 +107,7 @@
         var footerHeight = $('.footer').innerHeight()
         var mainHeight = winHeight - headerHeight - footerHeight - 3
 
-        //console.log('winHeight = ' + winHeight)
-        //console.log('headerHeight = ' + headerHeight)
-        //console.log('footerHeight = ' + footerHeight)
-        //console.log('mainHeight = ' + mainHeight)
+
 
         $('.main').css('min-height', mainHeight)
 

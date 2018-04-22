@@ -42,7 +42,7 @@
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <filter>
+<!--    <filter>
         <filter-name>springUtf8Encoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
@@ -53,7 +53,15 @@
             <param-name>forceEncoding</param-name>
             <param-value>true</param-value>
         </init-param>
+    </filter>-->
+   <!-- <filter>
+        <filter-name>AuthorFilter</filter-name>
+        <filter-class>com.reco.cn.Filter.AuthorFilter</filter-class>
     </filter>
+    <filter-mapping>
+        <filter-name>AuthorFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
     <servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -67,11 +75,11 @@
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <listener>
+   <!-- <listener>
         <listener-class>
             org.springframework.web.context.request.RequestContextListener
         </listener-class>
-    </listener>
+    </listener>-->
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
