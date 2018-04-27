@@ -68,6 +68,7 @@
                     <a href="salesProcess_1.html">发货到该地址</a>
                     <a href="javascript:void(0)" onclick="selected()">不取货</a>
                     <input type="hidden" id="selectedshdz">
+                    <input type="hidden" id="pono" value="${pono}">
                 </div>
             </div>
         </div>
@@ -78,7 +79,7 @@
 
      function selected( ){
          var val = $('input[name="maddrid"]:checked').val();
-         window.location.href="<%=basePath%>sales/zffs/"+val;
+         window.location.href="<%=basePath%>sales/zffs/"+val+'/'+$('#pono').val();
 
 
     };

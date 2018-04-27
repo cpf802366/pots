@@ -95,7 +95,7 @@
     <div class="uum">
         <p class="ffa">当前价格</p>
         <p class="ffb">${design.price}</p>
-        <a class="ffc" href="<%=basePath%>memAddr/shdzselected">我要竞价</a>
+        <a class="ffc" href="<%=basePath%>memAddr/shdzselected/${design.design_Id}">我要竞价</a>
     </div>
     <div class="number EC mb30">
         <div class="col mr20">
@@ -176,6 +176,8 @@
                 <a class="fr">返回</a>
             </div>
         </div>
+    </div>
+</div>
         <script src="${ctx}js/echarts.min.js"></script>
         <script>
             //取页面高度传递给父级页面
@@ -245,5 +247,6 @@
             // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option);
         </script>
+
 </body>
 </html>

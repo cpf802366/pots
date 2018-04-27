@@ -9,6 +9,7 @@ import com.reco.cn.sms.Sms;
 import com.reco.cn.util.Md5Utils;
 import com.reco.cn.util.R;
 import com.reco.cn.util.RandomUtil;
+import com.reco.cn.util.Resources;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,7 @@ public class LoginController {
 
     @RequestMapping("/login")
     String login(HttpServletRequest request, UserDO userDO, HttpSession session) {
+
         String mv = null;
         if (userDO.getUsername() == null || userDO.getPassword() == null) {
             mv = "redirect:/login/tologin";

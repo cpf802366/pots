@@ -29,6 +29,11 @@
 
 
 
+
+</head>
+
+
+
 <body>
 <jsp:include page="/pages/header-nav.jsp"></jsp:include>
 <div class="main">
@@ -90,7 +95,7 @@
         })
     })
     $(function(){
-        alert(123)
+
         var salesProcess = $('.salesProcess')
         var select = salesProcess.find('.paySelect')
         var btn = select.find('li a')
@@ -100,9 +105,9 @@
             btn.removeClass('active')
             $(this).addClass('active')
             if($(this).is('.weixinPay')){
-                $('.buttons a').attr('href','salesProcess_2_weixinPay.html')
+                $('.buttons a').attr('href','.htsalesProcess_2_weixinPayml')
             }else if($(this).is('.zhifubaoPay')){
-                $('.buttons a').attr('href','salesProcess_2_zhifubaoPay.html')
+                $('.buttons a').attr('href',' <%=basePath%>sales/zfzfb/${pono}')
             }
         })
     })

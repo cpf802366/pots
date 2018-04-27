@@ -1,9 +1,13 @@
 package com.reco.cn.controller;
 
 import com.reco.cn.constant.UserConstant;
+import com.reco.cn.dao.DesignDao;
+import com.reco.cn.domain.DesignDO;
 import com.reco.cn.domain.MemAddrDO;
+import com.reco.cn.domain.PurchaseDO;
 import com.reco.cn.domain.UserDO;
 import com.reco.cn.service.MemAddrService;
+import com.reco.cn.service.PurchaseService;
 import com.reco.cn.util.PageUtils;
 import com.reco.cn.util.Query;
 import com.reco.cn.util.R;
@@ -32,6 +36,8 @@ import java.util.Map;
 public class MemAddrController {
     @Autowired
     private MemAddrService memAddrService;
+    @Autowired
+    private PurchaseService purchaseService;
 
     @RequestMapping()
     String MemAddr() {
@@ -142,20 +148,35 @@ public class MemAddrController {
         return "redirect:/memAddr/listByUser";
     }
 
-    @RequestMapping("/shdzselected")
-    public ModelAndView shdzselected(HttpSession session) {
+    @RequestMapping("/shdzselected/{designid}")
+    public ModelAndView shdzselected(HttpSession session,@PathVariable("designid") Integer designid) {
         ModelAndView mv = new ModelAndView();
-        Map<String, Object> params = new HashMap<>();
         UserDO userDO = (UserDO) session.getAttribute(UserConstant.USER);
-        params.put("userid", userDO.getUser_id());
-        Query query = new Query(params);
-        List<MemAddrDO> memAddrList = memAddrService.list(query);
-        if (memAddrList != null && memAddrList.size()>0){
-            mv.addObject("memAddrList", memAddrList);
-            mv.setViewName("front/user/shdzselected");
+        PurchaseDO purchaseDO = new PurchaseDO();
+        purchaseDO.setBuyer_id( userDO.getUser_id().intValue());
+        purchaseDO.setBuyer_name( userDO.getUsername());
+        purchaseDO.setDesign_id(designid);
+     R r =   purchaseService.savebyorder(purchaseDO);
+        int  code  = (int) r.get("code");
+        if(code == 0){
+           mv.addObject("pono",r.get("msg"));
+            Map<String, Object> params = new HashMap<>();
+
+            params.put("userid", userDO.getUser_id());
+
+            Query query = new Query(params);
+            List<MemAddrDO> memAddrList = memAddrService.list(query);
+            if (memAddrList != null && memAddrList.size()>0){
+                mv.addObject("memAddrList", memAddrList);
+                mv.setViewName("front/user/shdzselected");
+            }else{
+                mv.setViewName("redirect:listByUser");
+            }
         }else{
-            mv.setViewName("redirect:listByUser");
+            mv.addObject("error","暂时无法购买");
+            mv.setViewName("front/pot/potdetail");
         }
+
 
         return mv;
     }

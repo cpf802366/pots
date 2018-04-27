@@ -1,6 +1,7 @@
 package com.reco.cn.service;
 
 import com.reco.cn.domain.PurchaseDO;
+import com.reco.cn.util.R;
 
 import java.util.List;
 import java.util.Map;
@@ -25,4 +26,6 @@ public interface PurchaseService {
     int remove(Integer poId);
 
     int batchRemove(Integer[] poIds);
+      R savebyorder(PurchaseDO purchase);
+    R saveByNoAddr(PurchaseDO purchase);
 }

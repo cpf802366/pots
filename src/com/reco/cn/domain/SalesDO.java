@@ -13,163 +13,103 @@ public class SalesDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //销售订单ID
-    private Integer soId;
+    private Integer so_id;
     //销售单号
-    private String soNo;
+    private String so_no;
     //卖家ID
-    private Integer sellerId;
+    private Integer seller_id;
     //
-    private Integer potId;
+    private Integer pot_id;
     //
-    private Integer designId;
+    private Integer design_id;
     //上架时间
-    private Date sellDttm;
+    private Date sell_dttm;
     //价格
     private Float price;
     //转让方式
-    private Integer sellMode;
+    private Integer sell_mode;
     //成交时间
-    private Date completeDttm;
+    private Date complete_dttm;
     //采购单ID，多个，拼接
-    private String poIds;
+    private String po_ids;
 
-    /**
-     * 设置：销售订单ID
-     */
-    public void setSoId(Integer soId) {
-        this.soId = soId;
+    public Integer getSo_id() {
+        return so_id;
     }
 
-    /**
-     * 获取：销售订单ID
-     */
-    public Integer getSoId() {
-        return soId;
+    public void setSo_id(Integer so_id) {
+        this.so_id = so_id;
     }
 
-    /**
-     * 设置：销售单号
-     */
-    public void setSoNo(String soNo) {
-        this.soNo = soNo;
+    public String getSo_no() {
+        return so_no;
     }
 
-    /**
-     * 获取：销售单号
-     */
-    public String getSoNo() {
-        return soNo;
+    public void setSo_no(String so_no) {
+        this.so_no = so_no;
     }
 
-    /**
-     * 设置：卖家ID
-     */
-    public void setSellerId(Integer sellerId) {
-        this.sellerId = sellerId;
+    public Integer getSeller_id() {
+        return seller_id;
     }
 
-    /**
-     * 获取：卖家ID
-     */
-    public Integer getSellerId() {
-        return sellerId;
+    public void setSeller_id(Integer seller_id) {
+        this.seller_id = seller_id;
     }
 
-    /**
-     * 设置：
-     */
-    public void setPotId(Integer potId) {
-        this.potId = potId;
+    public Integer getPot_id() {
+        return pot_id;
     }
 
-    /**
-     * 获取：
-     */
-    public Integer getPotId() {
-        return potId;
+    public void setPot_id(Integer pot_id) {
+        this.pot_id = pot_id;
     }
 
-    /**
-     * 设置：
-     */
-    public void setDesignId(Integer designId) {
-        this.designId = designId;
+    public Integer getDesign_id() {
+        return design_id;
     }
 
-    /**
-     * 获取：
-     */
-    public Integer getDesignId() {
-        return designId;
+    public void setDesign_id(Integer design_id) {
+        this.design_id = design_id;
     }
 
-    /**
-     * 设置：上架时间
-     */
-    public void setSellDttm(Date sellDttm) {
-        this.sellDttm = sellDttm;
+    public Date getSell_dttm() {
+        return sell_dttm;
     }
 
-    /**
-     * 获取：上架时间
-     */
-    public Date getSellDttm() {
-        return sellDttm;
+    public void setSell_dttm(Date sell_dttm) {
+        this.sell_dttm = sell_dttm;
     }
 
-    /**
-     * 设置：价格
-     */
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    /**
-     * 获取：价格
-     */
     public Float getPrice() {
         return price;
     }
 
-    /**
-     * 设置：转让方式
-     */
-    public void setSellMode(Integer sellMode) {
-        this.sellMode = sellMode;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
-    /**
-     * 获取：转让方式
-     */
-    public Integer getSellMode() {
-        return sellMode;
+    public Integer getSell_mode() {
+        return sell_mode;
     }
 
-    /**
-     * 设置：成交时间
-     */
-    public void setCompleteDttm(Date completeDttm) {
-        this.completeDttm = completeDttm;
+    public void setSell_mode(Integer sell_mode) {
+        this.sell_mode = sell_mode;
     }
 
-    /**
-     * 获取：成交时间
-     */
-    public Date getCompleteDttm() {
-        return completeDttm;
+    public Date getComplete_dttm() {
+        return complete_dttm;
     }
 
-    /**
-     * 设置：采购单ID，多个，拼接
-     */
-    public void setPoIds(String poIds) {
-        this.poIds = poIds;
+    public void setComplete_dttm(Date complete_dttm) {
+        this.complete_dttm = complete_dttm;
     }
 
-    /**
-     * 获取：采购单ID，多个，拼接
-     */
-    public String getPoIds() {
-        return poIds;
+    public String getPo_ids() {
+        return po_ids;
+    }
+
+    public void setPo_ids(String po_ids) {
+        this.po_ids = po_ids;
     }
 }

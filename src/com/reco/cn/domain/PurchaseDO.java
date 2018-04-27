@@ -24,6 +24,7 @@ public class PurchaseDO implements Serializable {
     private Date po_dttm;
     //
     private Integer order_state;
+
     //
     private Integer seller_id;
     //
@@ -44,6 +45,11 @@ public class PurchaseDO implements Serializable {
     private String remark;
     //对应销售单ID，多个，拼接
     private String so_ids;
+    //支付宝交易号
+    private String payment_mode;
+    //微信交易号
+    private String payment_id;
+
 
     public Integer getPo_id() {
         return po_id;
@@ -172,4 +178,21 @@ public class PurchaseDO implements Serializable {
     public void setSo_ids(String so_ids) {
         this.so_ids = so_ids;
     }
+
+    public String getPayment_mode() {
+        return payment_mode;
+    }
+
+    public void setPayment_mode(String payment_mode) {
+        this.payment_mode = payment_mode;
+    }
+
+    public String getPayment_id() {
+        return payment_id;
+    }
+
+    public void setPayment_id(String payment_id) {
+        this.payment_id = payment_id;
+    }
 }
+
