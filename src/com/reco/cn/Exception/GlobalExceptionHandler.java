@@ -39,11 +39,15 @@ public class GlobalExceptionHandler {
 
         ModelAndView mv = new ModelAndView();
       /*  mv.addObject("error", ex.toString().replaceAll("\n", "<br/>"));*/
+
         mv.addObject("error", getExceptionDetail(ex));
         mv.setViewName("exception/error");
         return mv;
     }
     public String getExceptionDetail(Exception e) {
+        System.out.println("异常开始-------------------------------------");
+        e.printStackTrace();
+        System.out.println("异常结束-------------------------------------");
         StringBuffer stringBuffer = new StringBuffer(e.toString() + "\n");
         StackTraceElement[] messages = e.getStackTrace();
         int length = messages.length;

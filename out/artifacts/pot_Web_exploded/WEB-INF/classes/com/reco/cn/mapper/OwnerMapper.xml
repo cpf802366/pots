@@ -58,13 +58,13 @@
         )
         values
         (
-        #{potId},
-        #{ownerId},
-        #{ownerName},
+        #{pot_id},
+        #{owner_id},
+        #{owner_name},
         #{price},
         #{taken},
-        #{orderId},
-        #{updateDate}
+        #{order_id},
+        #{update_date}
         )
     </insert>
 

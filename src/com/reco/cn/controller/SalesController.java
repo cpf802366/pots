@@ -3,12 +3,8 @@ package com.reco.cn.controller;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.aliyuncs.http.HttpRequest;
-import com.reco.cn.domain.MemAddrDO;
-import com.reco.cn.domain.PurchaseDO;
-import com.reco.cn.domain.SalesDO;
-import com.reco.cn.service.MemAddrService;
-import com.reco.cn.service.PurchaseService;
-import com.reco.cn.service.SalesService;
+import com.reco.cn.domain.*;
+import com.reco.cn.service.*;
 import com.reco.cn.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author cpf
@@ -43,7 +36,10 @@ public class SalesController {
     private PurchaseService purchaseService;
     @Autowired
             private MemAddrService  memAddrService;
-
+ @Autowired
+  private OwnerService ownerService;
+    @Autowired
+    private PriceService priceService;
 
     @RequestMapping()
     String Sales() {
@@ -117,13 +113,14 @@ public class SalesController {
         return R.ok();
     }
 
-    @RequestMapping("/zffs/{id}/{pono}")
-    public ModelAndView zffs(@PathVariable("id") Integer id, @PathVariable("pono") String pono) {
+    @RequestMapping("/zffs/{id}/{pono}/{taken}")
+    public ModelAndView zffs(@PathVariable("id") Integer id, @PathVariable("pono") String pono,@PathVariable("taken") boolean taken) {
         ModelAndView mv = new ModelAndView();
         MemAddrDO memAddrDO = memAddrService.get(id);
         PurchaseDO purchaseDO = new PurchaseDO();
         purchaseDO.setDelivery_addr(memAddrDO.getProvince()+memAddrDO.getCity()+memAddrDO.getArea()+memAddrDO.getJddz());
         purchaseDO.setPo_no(pono);
+        purchaseDO.setTaken(taken);
         purchaseService.saveByNoAddr(purchaseDO);
         mv.addObject("pono", pono);
         mv.addObject("shdz", id);
@@ -202,7 +199,34 @@ public class SalesController {
                 List<PurchaseDO> list = purchaseService.list(param);
                 purchaseDO.setPo_id(list.get(0).getPo_id());
                 purchaseService.update(purchaseDO);
-                mv.addObject("purchaes",list.get(0));
+                purchaseDO= purchaseService.get(list.get(0).getPo_id());
+                //
+                SalesDO salesDO = new SalesDO();
+                salesDO.setSo_id(Integer.parseInt(purchaseDO.getSo_ids()));
+                SalesDO sales = salesService.get(salesDO.getSo_id());
+                sales.setComplete_dttm(new Date());
+                sales.setPo_ids(purchaseDO.getPo_id().toString());
+                salesService.update(sales);
+
+                OwnerDO ownerDO = new OwnerDO();
+                ownerDO.setOwner_id(purchaseDO.getBuyer_id());
+                ownerDO.setOwner_name(purchaseDO.getBuyer_name());
+                ownerDO.setPrice(purchaseDO.getPrice());
+                ownerDO.setPot_id(purchaseDO.getPot_id());
+                ownerDO.setUpdate_date(new Date());
+                ownerDO.setOrder_id(Integer.parseInt(purchaseDO.getSo_ids()));
+                ownerDO.setTaken(purchaseDO.getTaken());
+                ownerService.save(ownerDO);
+
+                PriceDO priceDO = new PriceDO();
+
+                priceDO.setPrice(purchaseDO.getPrice());
+                priceDO.setDesignid(purchaseDO.getDesign_id());
+                priceDO.setUpdatedate(new Date());
+                priceDO.setUpdatetype("采购");
+                priceDO.setUpdateinfo(purchaseDO.getPo_no());
+                priceService.save(priceDO);
+                mv.addObject("purchaes",purchaseDO);
                 mv.setViewName("front/sales/zhifubaoPay");
                 return  mv;
             } else {

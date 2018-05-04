@@ -122,7 +122,7 @@
 			<if test="buyer_name != null and buyer_name != ''">   buyer_name = #{buyer_name} ,</if>
 			<if test="price != null and price != ''">   price = #{price}, </if>
 			<if test="delivery_addr != null and delivery_addr != ''">   delivery_addr = #{delivery_addr}, </if>
-			<if test="taken != null and taken != ''">   taken = #{taken} ,</if>
+			<if test="taken != null  ">   taken = #{taken} ,</if>
 			<if test="express_company != null and express_company != ''">   express_company = #{express_company}, </if>
 			<if test="express_no != null and express_no != ''">   express_no = #{express_no} ,</if>
 			<if test="remark != null and remark != ''">   remark = #{remark}, </if>

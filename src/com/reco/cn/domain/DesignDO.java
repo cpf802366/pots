@@ -12,11 +12,11 @@ public class DesignDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //款式ID
-    private Integer design_Id;
+    private Integer design_id;
     //作者
     private String author;
     //作者ID
-    private Integer art_Id;
+    private Integer art_id;
     //作品名称
     private String name;
     //鉴定证号
@@ -64,13 +64,13 @@ public class DesignDO implements Serializable {
     //
     private String fzimage;
     //
-    private String ggH;
+    private String gg_h;
     //
-    private String ggKj;
+    private String gg_kj;
     //
-    private String ggLen;
+    private String gg_len;
     //
-    private String ggW;
+    private String gg_w;
     //
     private String gy;
     //
@@ -82,12 +82,52 @@ public class DesignDO implements Serializable {
     //
     private Integer jiami;
 
-    public Integer getDesign_Id() {
-        return design_Id;
+    public Integer getDesign_id() {
+        return design_id;
     }
 
-    public void setDesign_Id(Integer design_Id) {
-        this.design_Id = design_Id;
+    public void setDesign_id(Integer design_id) {
+        this.design_id = design_id;
+    }
+
+    public Integer getArt_id() {
+        return art_id;
+    }
+
+    public void setArt_id(Integer art_id) {
+        this.art_id = art_id;
+    }
+
+    public String getGg_h() {
+        return gg_h;
+    }
+
+    public void setGg_h(String gg_h) {
+        this.gg_h = gg_h;
+    }
+
+    public String getGg_kj() {
+        return gg_kj;
+    }
+
+    public void setGg_kj(String gg_kj) {
+        this.gg_kj = gg_kj;
+    }
+
+    public String getGg_len() {
+        return gg_len;
+    }
+
+    public void setGg_len(String gg_len) {
+        this.gg_len = gg_len;
+    }
+
+    public String getGg_w() {
+        return gg_w;
+    }
+
+    public void setGg_w(String gg_w) {
+        this.gg_w = gg_w;
     }
 
     public String getAuthor() {
@@ -98,13 +138,6 @@ public class DesignDO implements Serializable {
         this.author = author;
     }
 
-    public Integer getArt_Id() {
-        return art_Id;
-    }
-
-    public void setArt_Id(Integer art_Id) {
-        this.art_Id = art_Id;
-    }
 
     public String getName() {
         return name;
@@ -290,37 +323,7 @@ public class DesignDO implements Serializable {
         this.fzimage = fzimage;
     }
 
-    public String getGgH() {
-        return ggH;
-    }
 
-    public void setGgH(String ggH) {
-        this.ggH = ggH;
-    }
-
-    public String getGgKj() {
-        return ggKj;
-    }
-
-    public void setGgKj(String ggKj) {
-        this.ggKj = ggKj;
-    }
-
-    public String getGgLen() {
-        return ggLen;
-    }
-
-    public void setGgLen(String ggLen) {
-        this.ggLen = ggLen;
-    }
-
-    public String getGgW() {
-        return ggW;
-    }
-
-    public void setGgW(String ggW) {
-        this.ggW = ggW;
-    }
 
     public String getGy() {
         return gy;

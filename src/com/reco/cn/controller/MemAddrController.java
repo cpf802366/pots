@@ -1,5 +1,6 @@
 package com.reco.cn.controller;
 
+import com.reco.cn.author.AuthPermission;
 import com.reco.cn.constant.UserConstant;
 import com.reco.cn.dao.DesignDao;
 import com.reco.cn.domain.DesignDO;
@@ -147,15 +148,16 @@ public class MemAddrController {
         memAddrService.defaultDz(id,query);
         return "redirect:/memAddr/listByUser";
     }
-
-    @RequestMapping("/shdzselected/{designid}")
-    public ModelAndView shdzselected(HttpSession session,@PathVariable("designid") Integer designid) {
+    @AuthPermission(validate=true)
+    @RequestMapping("/shdzselected/{designid}/{soid}")
+    public ModelAndView shdzselected(HttpSession session,@PathVariable("designid") Integer designid,@PathVariable("soid") Integer soid) {
         ModelAndView mv = new ModelAndView();
         UserDO userDO = (UserDO) session.getAttribute(UserConstant.USER);
         PurchaseDO purchaseDO = new PurchaseDO();
         purchaseDO.setBuyer_id( userDO.getUser_id().intValue());
         purchaseDO.setBuyer_name( userDO.getUsername());
         purchaseDO.setDesign_id(designid);
+        purchaseDO.setSo_ids(soid.toString());
      R r =   purchaseService.savebyorder(purchaseDO);
         int  code  = (int) r.get("code");
         if(code == 0){

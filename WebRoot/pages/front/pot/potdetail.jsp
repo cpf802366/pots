@@ -94,8 +94,20 @@
     </div>
     <div class="uum">
         <p class="ffa">当前价格</p>
-        <p class="ffb">${design.price}</p>
-        <a class="ffc" href="<%=basePath%>memAddr/shdzselected/${design.design_Id}">我要竞价</a>
+  <c:choose>
+            <c:when test="${design.kucun >0}">
+                <p class="ffb">${sales.price}</p>
+                <a class="ffc"   href="<%=basePath%>memAddr/shdzselected/${design.design_id}/${sales.so_id}">我要购买</a>
+                <input type="hidden" id="design" value="${design.design_id}">
+            </c:when>
+
+            <c:otherwise>
+                <p class="ffb">暂无定价</p>
+                <a class="ffc"   href="javascript:void(0)">暂无库存</a>
+            </c:otherwise>
+        </c:choose>
+
+
     </div>
     <div class="number EC mb30">
         <div class="col mr20">
@@ -178,8 +190,12 @@
         </div>
     </div>
 </div>
+
         <script src="${ctx}js/echarts.min.js"></script>
         <script>
+            function  wygm(obj) {
+
+            }
             //取页面高度传递给父级页面
             function setHeight() {
                 var contHeight = $('.warpper').height();
@@ -203,28 +219,7 @@
 
         </script>
         <script type="text/javascript">
-            $(function () {
-                var url = "";
-                var data = "data=" + "123";
-                var yvar;
-                var xvar;
-                $.ajax({
-                    url: url,   // 请求路径
-                    type: "POST",  //提交方式
-                    dataType: 'text', //获取数据类型，还可以是json、xml
-                    data: param,      //传入的参数
-                    success: function (data) {  //请求成功后返回的数据
-
-                    }
-
-                });
-
-            })
-
-            // 基于准备好的dom，初始化echarts实例
             var myChart = echarts.init(document.getElementById('jgqx'));
-
-            // 指定图表的配置项和数据
             var option = {
                 title: {
                     text: '价格曲线'
@@ -234,18 +229,70 @@
                     data: ['价格(万元)']
                 },
                 xAxis: {
-                    data: ["12", "19", "10", "9", "8", "7"]
+                    data: [ ]
                 },
                 yAxis: {},
                 series: [{
                     name: '价格(万元)',
                     type: 'line',
-                    data: [5, 20, 36, 10, 10, 20]
+                    data: [ ]
                 }]
             };
-
-            // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option);
+       $(function () {
+                var names=[];    //类别数组（实际用来盛放X轴坐标值）
+                var nums=[];    //销量数组（实际用来盛放Y坐标值）
+                var url = "<%=basePath%>price/listBydesignid ";
+                var param = "designid="+ $("#design").val()  ;
+             $.ajax({
+                    url: url,   // 请求路径
+                    type: "POST",  //提交方式
+                    dataType: 'json', //获取数据类型，还可以是json、xml
+                    data: param,      //传入的参数
+                    success: function (result) {  //请求成功后返回的数据
+                        for(var i=0;i<result.length;i++){
+                            names.push(dateutil(result[i].updatedate));    //挨个取出类别并填入类别数组
+                        }
+                        for(var i=0;i<result.length;i++){
+                            nums.push(result[i].price);    //挨个取出销量并填入销量数组
+                        }
+                        //myChart.hideLoading();    //隐藏加载动画
+                        myChart.setOption({        //加载数据图表
+                            xAxis: {
+                                data: names
+                            },
+                            series: [{
+                                // 根据名字对应到相应的系列
+                                name: '价格',
+                                data: nums
+                            }]
+                        });
+
+                    } ,
+                 error : function(errorMsg) {
+                     //请求失败时执行该函数
+                     alert("图表请求数据失败!");
+                     myChart.hideLoading();
+                 }
+
+                });
+            })
+
+         function  dateutil(inputTime) {
+             var date = new Date(inputTime);
+             var y = date.getFullYear();
+             var m = date.getMonth() + 1;
+             m = m < 10 ? ('0' + m) : m;
+             var d = date.getDate();
+             d = d < 10 ? ('0' + d) : d;
+             var h = date.getHours();
+             h = h < 10 ? ('0' + h) : h;
+             var minute = date.getMinutes();
+             var second = date.getSeconds();
+             minute = minute < 10 ? ('0' + minute) : minute;
+             second = second < 10 ? ('0' + second) : second;
+             return y + '-' + m + '-' + d ;
+         }
         </script>
 
 </body>

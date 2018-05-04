@@ -17,6 +17,8 @@ public class DesignServiceImpl implements DesignService {
 
     @Override
     public DesignDO get(Integer designId) {
+        DesignDO designDO = designDao.get(designId);
+
         return designDao.get(designId);
     }
 

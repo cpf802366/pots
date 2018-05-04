@@ -39,7 +39,7 @@
             <if test="ownerId != null and ownerId != ''">and owner_id = #{ownerId}</if>
             <if test="ownerName != null and ownerName != ''">and owner_name = #{ownerName}</if>
             <if test="price != null and price != ''">and price = #{price}</if>
-            <if test="taken != null and taken != ''">and taken = #{taken}</if>
+            <if test="taken != null    ">and taken = #{taken}</if>
             <if test="orderId != null and orderId != ''">and order_id = #{orderId}</if>
             <if test="updateDate != null and updateDate != ''">and update_date = #{updateDate}</if>
         </where>
@@ -58,13 +58,13 @@
         )
         values
         (
-        #{potId},
-        #{ownerId},
-        #{ownerName},
+        #{pot_id},
+        #{owner_id},
+        #{owner_name},
         #{price},
         #{taken},
-        #{orderId},
-        #{updateDate}
+        #{order_id},
+        #{update_date}
         )
     </insert>
 

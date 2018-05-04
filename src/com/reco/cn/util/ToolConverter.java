@@ -18,4 +18,10 @@ public class ToolConverter {
             return  sdf.format(date);
 
     }
+    public static String strDate( Date date){
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH ");
+        return  sdf.format(date);
+
+    }
 }

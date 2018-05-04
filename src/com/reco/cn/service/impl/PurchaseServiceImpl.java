@@ -64,22 +64,21 @@ public class PurchaseServiceImpl implements PurchaseService {
     public R savebyorder(PurchaseDO purchase) {
         Map<String, Object> params = new HashMap<>();
         R r = new R();
-        params.put("designId", purchase.getDesign_id());
-        List<DesignDO> designlist = designService.list(params);
-        List<SalesDO> list = salesService.list(params);
-        if(list != null && list.size() >0){
+
+          DesignDO  design  = designService.get(purchase.getDesign_id());
+          SalesDO  salesDO = salesService.get(Integer.parseInt(purchase.getSo_ids()));
+          design.setKucun(design.getKucun()-1);
+          designService.update(design);
             purchase.setOrder_state(1);
-            purchase.setPot_id(list.get(0).getPot_id());
-            purchase.setSeller_id(list.get(0).getSeller_id());
-            purchase.setPrice(designlist.get(0).getPrice());
+            purchase.setPot_id(salesDO.getPot_id());
+            purchase.setSeller_id(salesDO.getSeller_id());
+            purchase.setPrice(salesDO.getPrice());
             String pono = ToolConverter.strDate();
             purchase.setPo_no(pono);
             purchase.setPo_dttm(new Date());
             purchaseDao.save(purchase);
              r  = R.ok(pono);
-        }else{
-            r  = R.error(1,"操作失败");
-        }
+
         return  r ;
     }
 

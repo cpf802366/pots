@@ -1,7 +1,11 @@
 package com.reco.cn.controller;
 
 import com.reco.cn.domain.DesignDO;
+import com.reco.cn.domain.PriceDO;
+import com.reco.cn.domain.SalesDO;
 import com.reco.cn.service.DesignService;
+import com.reco.cn.service.PriceService;
+import com.reco.cn.service.SalesService;
 import com.reco.cn.util.PageUtils;
 import com.reco.cn.util.Query;
 import com.reco.cn.util.R;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,11 +34,24 @@ import java.util.Map;
 public class DesignController {
     @Autowired
     private DesignService designService;
-
+    @Autowired
+    private SalesService salesService;
+    @Autowired
+    private PriceService priceService;
     @RequestMapping()
     ModelAndView design(HttpServletRequest request, Integer designId) {
         ModelAndView mv = new ModelAndView();
         DesignDO design = designService.get(designId);
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("cxtj","and complete_dttm  is null");
+        params.put("sort" ,"sell_dttm");
+        params.put("order" ,"asc");
+        List<SalesDO> salesDOs = salesService.list(params);
+        if (salesDOs != null && salesDOs.size()>0){
+            mv.addObject("sales", salesDOs.get(0));
+        }
+
         mv.addObject("design", design);
         mv.setViewName("front/pot/potdetail");
         return mv;

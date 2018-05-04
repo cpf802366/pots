@@ -48,12 +48,12 @@
                     <p class="bs mb20 ac osTop fcBlack8">“泥”、“形”、“工”、“款”、“意”。</p>
                     <ul class="potList cb ">
                         <c:forEach var="designlist" items="${designlist}" varStatus="status" begin="0" end="3" step="1">
-                            <li onclick='location.href="${ctx}design?designId=${designlist.design_Id}"' class="osScale">
+                            <li onclick='location.href="${ctx}design?designId=${designlist.design_id}"' class="osScale">
                                 <img src="${ctx}${designlist.productimg}" style="max-height:195px">
                                 <div class="change">
                                     <p class="name mb10">${designlist.name}</p>
                                     <p class="info mb10 ph_mb5 cb">
-                                        <span>作者：${designlist.author}</span><span>编号：${designlist.design_Id}</span><span
+                                        <span>作者：${designlist.author}</span><span>编号：${designlist.design_id}</span><span
                                             class="ph_dn">泥料：${designlist.niliao}</span><span
                                             class="ph_dn">容量：${designlist.rongliang}</span></p>
                                     <div class="fun ac ph_dn">

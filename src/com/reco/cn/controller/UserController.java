@@ -116,9 +116,9 @@ public class UserController {
 
                 DesignDO design = designService.get(info.getDesign_id());
                 if (design != null) {
-                    myhu.setDesign_Id(design.getDesign_Id());
+                    myhu.setDesign_Id(design.getDesign_id());
                     myhu.setAuthor(design.getAuthor());
-                    myhu.setArt_Id(design.getArt_Id());
+                    myhu.setArt_Id(design.getArt_id());
                     myhu.setDesign_name(design.getName());
                     myhu.setDesign_img(design.getProductimg());
                 }

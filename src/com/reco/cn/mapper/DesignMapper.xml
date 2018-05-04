@@ -187,7 +187,7 @@
         update pot_design
         <set>
             <if test="author != null">`author` = #{author},</if>
-            <if test="artId != null">`art_id` = #{artId},</if>
+            <if test="art_id != null">`art_id` = #{art_id},</if>
             <if test="name != null">`name` = #{name},</if>
             <if test="jdzh != null">`jdzh` = #{jdzh},</if>
             <if test="productimg != null">`productimg` = #{productimg},</if>
@@ -211,17 +211,17 @@
             <if test="flimage != null">`flimage` = #{flimage},</if>
             <if test="fsimage != null">`fsimage` = #{fsimage},</if>
             <if test="fzimage != null">`fzimage` = #{fzimage},</if>
-            <if test="ggH != null">`gg_h` = #{ggH},</if>
-            <if test="ggKj != null">`gg_kj` = #{ggKj},</if>
-            <if test="ggLen != null">`gg_len` = #{ggLen},</if>
-            <if test="ggW != null">`gg_w` = #{ggW},</if>
+            <if test="gg_h != null">`gg_h` = #{gg_h},</if>
+            <if test="gg_kj != null">`gg_kj` = #{gg_kj},</if>
+            <if test="gg_len != null">`gg_len` = #{gg_len},</if>
+            <if test="gg_w != null">`gg_w` = #{gg_w},</if>
             <if test="gy != null">`gy` = #{gy},</if>
             <if test="pm != null">`pm` = #{pm},</if>
             <if test="zx != null">`zx` = #{zx},</if>
             <if test="sm360 != null">`sm360` = #{sm360},</if>
             <if test="jiami != null">`jiami` = #{jiami}</if>
         </set>
-        where design_id = #{designId}
+        where design_id = #{design_id}
     </update>
 
     <delete id="remove">

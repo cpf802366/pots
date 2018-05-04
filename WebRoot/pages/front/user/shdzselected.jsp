@@ -79,7 +79,7 @@
 
      function selected( ){
          var val = $('input[name="maddrid"]:checked').val();
-         window.location.href="<%=basePath%>sales/zffs/"+val+'/'+$('#pono').val();
+         window.location.href="<%=basePath%>sales/zffs/"+val+'/'+$('#pono').val()+'/false';
 
 
     };
