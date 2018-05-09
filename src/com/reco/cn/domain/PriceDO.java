@@ -27,6 +27,10 @@ public class PriceDO implements Serializable {
 	private String updatetype;
 	//更新信息，采购时放采购单ID
 	private String updateinfo;
+    //持壶人
+	private String chr;
+	//持壶人id
+	private String chrid;
 
 	/**
 	 * 设置：价格ID
@@ -99,5 +103,21 @@ public class PriceDO implements Serializable {
 	 */
 	public String getUpdateinfo() {
 		return updateinfo;
+	}
+
+	public String getChr() {
+		return chr;
+	}
+
+	public void setChr(String chr) {
+		this.chr = chr;
+	}
+
+	public String getChrid() {
+		return chrid;
+	}
+
+	public void setChrid(String chrid) {
+		this.chrid = chrid;
 	}
 }

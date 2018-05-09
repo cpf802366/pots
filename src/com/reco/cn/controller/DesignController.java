@@ -6,6 +6,7 @@ import com.reco.cn.domain.SalesDO;
 import com.reco.cn.service.DesignService;
 import com.reco.cn.service.PriceService;
 import com.reco.cn.service.SalesService;
+import com.reco.cn.util.NotEmptyUtil;
 import com.reco.cn.util.PageUtils;
 import com.reco.cn.util.Query;
 import com.reco.cn.util.R;
@@ -51,7 +52,11 @@ public class DesignController {
         if (salesDOs != null && salesDOs.size()>0){
             mv.addObject("sales", salesDOs.get(0));
         }
+        List<PriceDO> priceDOList = priceService.salesPrice(designId);
 
+        if(NotEmptyUtil.listEmpty(priceDOList)){
+            mv.addObject("priceDOList", priceDOList);
+        }
         mv.addObject("design", design);
         mv.setViewName("front/pot/potdetail");
         return mv;

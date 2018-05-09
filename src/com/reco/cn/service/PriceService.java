@@ -25,4 +25,5 @@ public interface PriceService {
     int remove(Integer priceId);
 
     int batchRemove(Integer[] priceIds);
+    List<PriceDO> salesPrice(Integer designid);
 }

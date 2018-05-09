@@ -50,4 +50,9 @@ public class PriceServiceImpl implements PriceService {
         return priceDao.batchRemove(priceIds);
     }
 
+    @Override
+    public List<PriceDO> salesPrice(Integer designid) {
+        return   priceDao.salesPrice(designid);
+    }
+
 }

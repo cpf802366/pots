@@ -28,4 +28,5 @@ public interface PriceDao {
 	int remove(Integer priceid);
 	
 	int batchRemove(Integer[] priceids);
+	List<PriceDO> salesPrice(Integer designid);
 }
