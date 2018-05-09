@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@    taglib prefix="c" uri="/WEB-INF/tld/c.tld" %>
+<%@ taglib prefix="fmt" uri="/WEB-INF/tld/fmt.tld" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -17,6 +18,8 @@
     <link rel="stylesheet" href="${ctx}css/com[0].css">
     <link rel="stylesheet" href="${ctx}css/com[animation].css">
     <link rel="stylesheet" href="${ctx}css/com[fwjd].css">
+    <link rel="stylesheet" href="${ctx}css/com[phone].css">
+    <link rel="stylesheet" href="${ctx}css/com[salesProcess].css">
     <script type="text/javascript" src="${ctx}js/jquery-1.11.3.min.js"></script>
     <style>
         .uum {
@@ -173,7 +176,29 @@
         </div> -->
             <div class="kkh">
                 <div class="ttt">交易记录</div>
-                <div class="_fs18">《禅机》还未售出，现持壶人为作者，今日价格：<span style="color: #bb1417">¥500000.00</span>元。</div>
+                <c:if test="${empty priceDOList}">
+                    <div class="_fs18">《禅机》还未售出，现持壶人为作者，今日价格：<span style="color: #bb1417">${sales.price}</span>元。</div>
+                </c:if>
+                <c:if test="${!empty priceDOList}">
+                    <div class="myhu">
+                    <div class="ct">
+                        <table>
+                            <tr>
+                                <th>持壶人</th>
+                                <th>价格</th>
+                                <th>持壶时间</th>
+                            </tr>
+                            <c:forEach var="priceDO" items="${priceDOList}" varStatus="status">
+                                <tr>
+                                    <td>${priceDO.chr}</td>
+                                    <td>${priceDO.price}</td>
+                                    <td><fmt:formatDate value="${priceDO.updatedate}" pattern="yyyy-MM-dd"/></td>
+                                </tr>
+                             </c:forEach>
+                            </table>
+                    </div>
+                </c:if>
+            </div>
             </div>
             <!-- <div class="kkh">
                 <div class="ttt">我要评论</div>
@@ -185,7 +210,7 @@
                 </div>
             </div> -->
             <div class="next2 mt50 mb50 cb">
-                <a class="fr">返回</a>
+                <a class="fr" href="<%=basePath%>index">返回</a>
             </div>
         </div>
     </div>

@@ -85,5 +85,10 @@
 			#{priceid}
 		</foreach>
 	</delete>
-
+   <!--壶-交易记录-->
+	<select id="salesPrice" parameterType="Integer" resultType="com.reco.cn.domain.PriceDO">
+		select pr.* ,ow.owner_name  as chr  from pot_price  pr  left join pot_purchase pu  on pr.updateinfo = pu.po_no
+                             LEFT JOIN  pot_owner ow on ow.order_id = pu.so_ids
+                            WHERE  pr.designid =#{designid}
+	</select>
 </mapper>

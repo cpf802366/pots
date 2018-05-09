@@ -1,5 +1,6 @@
 package com.reco.cn.controller;
 
+import com.reco.cn.author.AuthPermission;
 import com.reco.cn.constant.UserConstant;
 import com.reco.cn.domain.*;
 import com.reco.cn.service.*;
@@ -88,15 +89,11 @@ public class UserController {
         mv.setViewName("front/user/userCenter_dlaq");
         return mv;
     }
-
+    @AuthPermission(validate=true)
     @RequestMapping("/myhu")
     ModelAndView myhu(HttpServletRequest request, HttpSession session) {
         ModelAndView mv = new ModelAndView();
         UserDO uo = (UserDO) session.getAttribute(UserConstant.USER);
-        if (uo == null || uo.getUsername() == null || uo.getPassword() == null) {
-            mv.setViewName("redirect:/login/tologin");
-            return mv;
-        }
 
         List<MyhuDO> list = new ArrayList<MyhuDO>();
 

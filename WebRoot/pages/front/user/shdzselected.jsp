@@ -65,8 +65,8 @@
                     </c:forEach>
                 </ul>
                 <div class="buttons">
-                    <a href="salesProcess_1.html">发货到该地址</a>
-                    <a href="javascript:void(0)" onclick="selected()">不取货</a>
+                    <a href="javascript:void(0)" onclick="selected(1)">发货到该地址</a>
+                    <a href="javascript:void(0)" onclick="selected(2)">不取货</a>
                     <input type="hidden" id="selectedshdz">
                     <input type="hidden" id="pono" value="${pono}">
                 </div>
@@ -77,9 +77,15 @@
 <jsp:include page="/pages/footer-nav.jsp"></jsp:include>
 <script type="text/javascript">
 
-     function selected( ){
+     function selected( obj){
+         var type = false;
+         if(obj == 1){
+             type = true;
+         }else if(obj == 2){
+             type = false;
+         }
          var val = $('input[name="maddrid"]:checked').val();
-         window.location.href="<%=basePath%>sales/zffs/"+val+'/'+$('#pono').val()+'/false';
+         window.location.href="<%=basePath%>sales/zffs/"+val+'/'+$('#pono').val()+'/'+type;
 
 
     };

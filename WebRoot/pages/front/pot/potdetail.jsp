@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@    taglib prefix="c" uri="/WEB-INF/tld/c.tld" %>
-<%@    taglib prefix="c" uri="/WEB-INF/tld/fmt-1.tld" %>
+<%@ taglib prefix="fmt" uri="/WEB-INF/tld/fmt.tld" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -192,16 +192,10 @@
                                 <tr>
                                     <td>${priceDO.chr}</td>
                                     <td>${priceDO.price}</td>
-
-
                                     <td><fmt:formatDate value="${priceDO.updatedate}" pattern="yyyy-MM-dd"/></td>
                                 </tr>
-
-                            </c:forEach>
-
-
-
-                        </table>
+                             </c:forEach>
+                            </table>
                     </div>
                 </c:if>
             </div>
@@ -216,7 +210,7 @@
                 </div>
             </div> -->
             <div class="next2 mt50 mb50 cb">
-                <a class="fr">返回</a>
+                <a class="fr" href="<%=basePath%>index">返回</a>
             </div>
         </div>
     </div>
