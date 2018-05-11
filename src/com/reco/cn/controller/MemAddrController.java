@@ -12,6 +12,7 @@ import com.reco.cn.service.PurchaseService;
 import com.reco.cn.util.PageUtils;
 import com.reco.cn.util.Query;
 import com.reco.cn.util.R;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -157,7 +158,10 @@ public class MemAddrController {
         purchaseDO.setBuyer_id( userDO.getUser_id().intValue());
         purchaseDO.setBuyer_name( userDO.getUsername());
         purchaseDO.setDesign_id(designid);
-        purchaseDO.setSo_ids(soid.toString());
+        if(soid != null  ){
+            purchaseDO.setSo_ids(soid.toString());
+        }
+
      R r =   purchaseService.savebyorder(purchaseDO);
         int  code  = (int) r.get("code");
         if(code == 0){

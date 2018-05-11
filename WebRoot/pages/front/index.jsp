@@ -47,7 +47,7 @@
                     <div class="title partTitle-black osTop">紫砂作品</div>
                     <p class="bs mb20 ac osTop fcBlack8">“泥”、“形”、“工”、“款”、“意”。</p>
                     <ul class="potList cb ">
-                        <c:forEach var="designlist" items="${designlist}" varStatus="status" begin="0" end="3" step="1">
+                        <c:forEach var="designlist" items="${designlist}" varStatus="status" begin="0" end="5" step="1">
                             <li onclick='location.href="${ctx}design?designId=${designlist.design_id}"' class="osScale">
                                 <img src="${ctx}${designlist.productimg}" style="max-height:195px">
                                 <div class="change">
