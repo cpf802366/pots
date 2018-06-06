@@ -90,8 +90,8 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <a href="salesProcess_3.html">出售</a>
-                    <a href="<%=basePath%>memAddr/shdzselected">取壶</a>
+                    <a href="javascript:void(0)">出售</a>
+                    <a href="javascript:void(0)">取壶</a>
                 </div>
             </c:forEach>
 
