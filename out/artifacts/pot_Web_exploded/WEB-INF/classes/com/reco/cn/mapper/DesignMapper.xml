@@ -147,7 +147,7 @@
         values
         (
         #{author},
-        #{artId},
+        #{art_id},
         #{name},
         #{jdzh},
         #{productimg},
@@ -171,10 +171,10 @@
         #{flimage},
         #{fsimage},
         #{fzimage},
-        #{ggH},
-        #{ggKj},
-        #{ggLen},
-        #{ggW},
+        #{gg_h},
+        #{gg_kj},
+        #{gg_len},
+        #{gg_w},
         #{gy},
         #{pm},
         #{zx},

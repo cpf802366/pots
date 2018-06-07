@@ -97,16 +97,16 @@
     </div>
     <div class="uum">
         <p class="ffa">当前价格</p>
-  <c:choose>
+        <c:choose>
             <c:when test="${design.kucun >0}">
                 <p class="ffb">${sales.price}</p>
-                <a class="ffc"   href="<%=basePath%>memAddr/shdzselected/${design.design_id}/${sales.so_id}">我要购买</a>
+                <a class="ffc" href="<%=basePath%>memAddr/shdzselected/${design.design_id}/${sales.soId}">我要购买</a>
                 <input type="hidden" id="design" value="${design.design_id}">
             </c:when>
 
             <c:otherwise>
                 <p class="ffb">暂无定价</p>
-                <a class="ffc"   href="javascript:void(0)">暂无库存</a>
+                <a class="ffc" href="javascript:void(0)">暂无库存</a>
             </c:otherwise>
         </c:choose>
 
@@ -122,7 +122,8 @@
         </div>
     </div>
     <ul class="info mb30">
-        <li><span>品名：</span><span>${design.pm}</span></li>
+        <li><span>品牌：</span><span>${design.pm}</span></li>
+        <li><span>名称：</span><span>${design.name}</span></li>
         <li><span>泥料：</span><span>${design.niliao}</span></li>
         <li><span>作者：</span><span>${design.author}
 			<a style="text-decoration: underline; color: #bb1417; margin-left: 35px;">师承</a>
@@ -139,27 +140,32 @@
 
     </div>
     <div class="pic EC mb30">
-        <div class="col mr20"><img src="${ctx}${design.productimg}">
-            <p>作品照片</p>
+        <div class="col mr20"><img src="${design.authorproductimage}">
+            <p>作品照片1</p>
         </div>
-        <div class="col"><img src="${ctx}${design.authorproductimage}">
-            <p>作品执壶照片</p>
+        <div class="col mr20"><img src="${design.fbimage}">
+            <p>作品照片2</p>
+        </div>
+        <div class="col"><img src="${design.fdimage}">
+            <p>作品照片3</p>
         </div>
     </div>
+    <!--
     <div class="state mb30">
-        <h3 style="font-weight: normal">${design.authorcr}</h3>
+        <h3 style="font-weight: normal"></h3>
     </div>
     <div class="pic EC mb30">
-        <div class="col mr20"><img src="${ctx}${design.authoryz}">
+        <div class="col mr20"><img src="">
             <p>作者印章</p>
         </div>
-        <div class="col mr20"><img src="${ctx}${design.authorqm}">
+        <div class="col mr20"><img src="">
             <p>作者签名</p>
         </div>
-        <div class="col"><img src="${ctx}${design.authorzw}">
+        <div class="col"><img src=">
             <p>作者指纹</p>
         </div>
     </div>
+    -->
     <div class="kkh">
         <div class="ttt">360度全息图</div>
         <!-- <div class="_fs18">您还没有登录我的紫砂，请
@@ -177,10 +183,12 @@
             <div class="kkh">
                 <div class="ttt">交易记录</div>
                 <c:if test="${empty priceDOList}">
-                    <div class="_fs18">《禅机》还未售出，现持壶人为作者，今日价格：<span style="color: #bb1417">${sales.price}</span>元。</div>
+                    <div class="_fs18">《${design.name}》还未售出，现持壶人为作者，今日价格：<span
+                            style="color: #bb1417">${sales.price}</span>元。
+                    </div>
                 </c:if>
                 <c:if test="${!empty priceDOList}">
-                    <div class="myhu">
+                <div class="myhu">
                     <div class="ct">
                         <table>
                             <tr>
@@ -190,15 +198,15 @@
                             </tr>
                             <c:forEach var="priceDO" items="${priceDOList}" varStatus="status">
                                 <tr>
-                                    <td>${priceDO.chr}</td>
+                                    <td>${priceDO.updateinfo}</td>
                                     <td>${priceDO.price}</td>
                                     <td><fmt:formatDate value="${priceDO.updatedate}" pattern="yyyy-MM-dd"/></td>
                                 </tr>
-                             </c:forEach>
-                            </table>
+                            </c:forEach>
+                        </table>
                     </div>
-                </c:if>
-            </div>
+                    </c:if>
+                </div>
             </div>
             <!-- <div class="kkh">
                 <div class="ttt">我要评论</div>
@@ -216,109 +224,110 @@
     </div>
 </div>
 
-        <script src="${ctx}js/echarts.min.js"></script>
-        <script>
-            function  wygm(obj) {
+<script src="${ctx}js/echarts.min.js"></script>
+<script>
+    function wygm(obj) {
 
-            }
-            //取页面高度传递给父级页面
-            function setHeight() {
-                var contHeight = $('.warpper').height();
-                var cc = contHeight + 60
-                window.parent.test(cc);
-            }
+    }
 
+    //取页面高度传递给父级页面
+    function setHeight() {
+        var contHeight = $('.warpper').height();
+        var cc = contHeight + 60
+        window.parent.test(cc);
+    }
+
+    setHeight();
+    $(function () {
+        $(window).resize(function () {
             setHeight();
-            $(function () {
-                $(window).resize(function () {
-                    setHeight();
+        });
+        $(window).mouseup(function () {
+            setHeight();
+        });
+        $(window).click(function () {
+            setHeight();
+        });
+    })
+
+
+</script>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('jgqx'));
+    var option = {
+        title: {
+            text: '价格曲线'
+        },
+        tooltip: {},
+        legend: {
+            data: ['价格(万元)']
+        },
+        xAxis: {
+            data: []
+        },
+        yAxis: {},
+        series: [{
+            name: '价格(万元)',
+            type: 'line',
+            data: []
+        }]
+    };
+    myChart.setOption(option);
+    $(function () {
+        var names = [];    //类别数组（实际用来盛放X轴坐标值）
+        var nums = [];    //销量数组（实际用来盛放Y坐标值）
+        var url = "<%=basePath%>price/listBydesignid ";
+        var param = "designid=" + $("#design").val();
+        $.ajax({
+            url: url,   // 请求路径
+            type: "POST",  //提交方式
+            dataType: 'json', //获取数据类型，还可以是json、xml
+            data: param,      //传入的参数
+            success: function (result) {  //请求成功后返回的数据
+                for (var i = 0; i < result.length; i++) {
+                    names.push(dateutil(result[i].updatedate));    //挨个取出类别并填入类别数组
+                }
+                for (var i = 0; i < result.length; i++) {
+                    nums.push(result[i].price);    //挨个取出销量并填入销量数组
+                }
+                //myChart.hideLoading();    //隐藏加载动画
+                myChart.setOption({        //加载数据图表
+                    xAxis: {
+                        data: names
+                    },
+                    series: [{
+                        // 根据名字对应到相应的系列
+                        name: '价格',
+                        data: nums
+                    }]
                 });
-                $(window).mouseup(function () {
-                    setHeight();
-                });
-                $(window).click(function () {
-                    setHeight();
-                });
-            })
 
+            },
+            error: function (errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                myChart.hideLoading();
+            }
 
-        </script>
-        <script type="text/javascript">
-            var myChart = echarts.init(document.getElementById('jgqx'));
-            var option = {
-                title: {
-                    text: '价格曲线'
-                },
-                tooltip: {},
-                legend: {
-                    data: ['价格(万元)']
-                },
-                xAxis: {
-                    data: [ ]
-                },
-                yAxis: {},
-                series: [{
-                    name: '价格(万元)',
-                    type: 'line',
-                    data: [ ]
-                }]
-            };
-            myChart.setOption(option);
-       $(function () {
-                var names=[];    //类别数组（实际用来盛放X轴坐标值）
-                var nums=[];    //销量数组（实际用来盛放Y坐标值）
-                var url = "<%=basePath%>price/listBydesignid ";
-                var param = "designid="+ $("#design").val()  ;
-             $.ajax({
-                    url: url,   // 请求路径
-                    type: "POST",  //提交方式
-                    dataType: 'json', //获取数据类型，还可以是json、xml
-                    data: param,      //传入的参数
-                    success: function (result) {  //请求成功后返回的数据
-                        for(var i=0;i<result.length;i++){
-                            names.push(dateutil(result[i].updatedate));    //挨个取出类别并填入类别数组
-                        }
-                        for(var i=0;i<result.length;i++){
-                            nums.push(result[i].price);    //挨个取出销量并填入销量数组
-                        }
-                        //myChart.hideLoading();    //隐藏加载动画
-                        myChart.setOption({        //加载数据图表
-                            xAxis: {
-                                data: names
-                            },
-                            series: [{
-                                // 根据名字对应到相应的系列
-                                name: '价格',
-                                data: nums
-                            }]
-                        });
+        });
+    })
 
-                    } ,
-                 error : function(errorMsg) {
-                     //请求失败时执行该函数
-                     alert("图表请求数据失败!");
-                     myChart.hideLoading();
-                 }
-
-                });
-            })
-
-         function  dateutil(inputTime) {
-             var date = new Date(inputTime);
-             var y = date.getFullYear();
-             var m = date.getMonth() + 1;
-             m = m < 10 ? ('0' + m) : m;
-             var d = date.getDate();
-             d = d < 10 ? ('0' + d) : d;
-             var h = date.getHours();
-             h = h < 10 ? ('0' + h) : h;
-             var minute = date.getMinutes();
-             var second = date.getSeconds();
-             minute = minute < 10 ? ('0' + minute) : minute;
-             second = second < 10 ? ('0' + second) : second;
-             return y + '-' + m + '-' + d ;
-         }
-        </script>
+    function dateutil(inputTime) {
+        var date = new Date(inputTime);
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        var h = date.getHours();
+        h = h < 10 ? ('0' + h) : h;
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+        minute = minute < 10 ? ('0' + minute) : minute;
+        second = second < 10 ? ('0' + second) : second;
+        return y + '-' + m + '-' + d;
+    }
+</script>
 
 </body>
 </html>

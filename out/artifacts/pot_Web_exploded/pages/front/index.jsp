@@ -49,7 +49,7 @@
                     <ul class="potList cb ">
                         <c:forEach var="designlist" items="${designlist}" varStatus="status" begin="0" end="5" step="1">
                             <li onclick='location.href="${ctx}design?designId=${designlist.design_id}"' class="osScale">
-                                <img src="${ctx}${designlist.productimg}" style="max-height:195px">
+                                <img src="${ctx}${designlist.authorproductimage}" style="max-height:195px">
                                 <div class="change">
                                     <p class="name mb10">${designlist.name}</p>
                                     <p class="info mb10 ph_mb5 cb">

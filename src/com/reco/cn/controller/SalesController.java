@@ -2,7 +2,7 @@ package com.reco.cn.controller;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
-import com.aliyuncs.http.HttpRequest;
+import com.reco.cn.constant.UserConstant;
 import com.reco.cn.domain.*;
 import com.reco.cn.service.*;
 import com.reco.cn.util.*;
@@ -33,11 +33,15 @@ public class SalesController {
     @Autowired
     private SalesService salesService;
     @Autowired
+    private InfoService infoService;
+    @Autowired
+    private DesignService designService;
+    @Autowired
     private PurchaseService purchaseService;
     @Autowired
-            private MemAddrService  memAddrService;
- @Autowired
-  private OwnerService ownerService;
+    private MemAddrService memAddrService;
+    @Autowired
+    private OwnerService ownerService;
     @Autowired
     private PriceService priceService;
 
@@ -58,8 +62,41 @@ public class SalesController {
     }
 
     @RequestMapping("/add")
-    String add() {
-        return "cn/sales/add";
+    ModelAndView add(HttpServletRequest request, Integer potId) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("redirect:/user/myhu");
+
+        OwnerDO owner = ownerService.get(potId);
+        InfoDO pot = infoService.get(potId);
+        Object user = request.getSession().getAttribute(UserConstant.USER);
+
+        //error data
+        if (owner == null || pot == null || user == null)
+            return mv;
+
+        //error owner
+        if ((long) owner.getOwner_id() != ((UserDO) user).getUser_id())
+            return mv;
+
+        //saled
+        Map<String, Object> param = new HashMap<>();
+        param.put("cxtj", "and complete_dttm is null and pot_id = " + potId);
+        if (salesService.list(param).size() > 0)
+            return mv;
+
+
+        SalesDO d = new SalesDO();
+        d.setDesignId(pot.getDesign_id());
+        d.setPotId(pot.getPot_id());
+        d.setPrice((float) 1);///////1 yuan for test
+        d.setSellDttm(new Date());
+        d.setSellMode(0);
+        d.setSellerId(owner.getOwner_id());
+
+        salesService.save(d);
+
+        return mv;
+
     }
 
     @RequestMapping("/edit/{soId}")
@@ -114,11 +151,11 @@ public class SalesController {
     }
 
     @RequestMapping("/zffs/{id}/{pono}/{taken}")
-    public ModelAndView zffs(@PathVariable("id") Integer id, @PathVariable("pono") String pono,@PathVariable("taken") boolean taken) {
+    public ModelAndView zffs(@PathVariable("id") Integer id, @PathVariable("pono") String pono, @PathVariable("taken") boolean taken) {
         ModelAndView mv = new ModelAndView();
         MemAddrDO memAddrDO = memAddrService.get(id);
         PurchaseDO purchaseDO = new PurchaseDO();
-        purchaseDO.setDelivery_addr(memAddrDO.getProvince()+memAddrDO.getCity()+memAddrDO.getArea()+memAddrDO.getJddz());
+        purchaseDO.setDelivery_addr(memAddrDO.getProvince() + memAddrDO.getCity() + memAddrDO.getArea() + memAddrDO.getJddz());
         purchaseDO.setPo_no(pono);
         purchaseDO.setTaken(taken);
         purchaseService.saveByNoAddr(purchaseDO);
@@ -151,7 +188,7 @@ public class SalesController {
     }
 
     @RequestMapping("/zffshd")
-    public ModelAndView  zffshd(HttpServletRequest request) {
+    public ModelAndView zffshd(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         try {
 
@@ -195,17 +232,17 @@ public class SalesController {
                 purchaseDO.setPayment_id(trade_no);
 
                 Map<String, Object> param = new HashMap<>();
-                param.put("po_no",purchaseDO.getPo_no());
+                param.put("po_no", purchaseDO.getPo_no());
                 List<PurchaseDO> list = purchaseService.list(param);
                 purchaseDO.setPo_id(list.get(0).getPo_id());
                 purchaseService.update(purchaseDO);
-                purchaseDO= purchaseService.get(list.get(0).getPo_id());
+                purchaseDO = purchaseService.get(list.get(0).getPo_id());
                 //
                 SalesDO salesDO = new SalesDO();
-                salesDO.setSo_id(Integer.parseInt(purchaseDO.getSo_ids()));
-                SalesDO sales = salesService.get(salesDO.getSo_id());
-                sales.setComplete_dttm(new Date());
-                sales.setPo_ids(purchaseDO.getPo_id().toString());
+                salesDO.setSoId(Integer.parseInt(purchaseDO.getSo_ids()));
+                SalesDO sales = salesService.get(salesDO.getSoId());
+                sales.setCompleteDttm(new Date());
+                sales.setPoIds(purchaseDO.getPo_id().toString());
                 salesService.update(sales);
 
                 OwnerDO ownerDO = new OwnerDO();
@@ -226,9 +263,9 @@ public class SalesController {
                 priceDO.setUpdatetype("采购");
                 priceDO.setUpdateinfo(purchaseDO.getPo_no());
                 priceService.save(priceDO);
-                mv.addObject("purchaes",purchaseDO);
+                mv.addObject("purchaes", purchaseDO);
                 mv.setViewName("front/sales/zhifubaoPay");
-                return  mv;
+                return mv;
             } else {
                 System.out.println("验签失败");
             }
@@ -238,7 +275,7 @@ public class SalesController {
             e.printStackTrace();
         }
         //——请在这里编写您的程序（以上代码仅作参考）——
-        return  null;
+        return null;
     }
 
 }

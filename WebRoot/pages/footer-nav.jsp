@@ -53,7 +53,7 @@
             </li>
 
             <li>
-                <a href="#">退出登录</a>
+                <a href="<%=basePath%>/login/logout">退出登录</a>
             </li>
         </ul>
         <p>

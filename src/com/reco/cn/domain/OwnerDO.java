@@ -13,42 +13,42 @@ public class OwnerDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //壶ID
-    private Integer pot_id;
+    private Integer potId;
     //壶主ID
-    private Integer owner_id;
+    private Integer ownerId;
     //壶主姓名
-    private String owner_name;
+    private String ownerName;
     //价格
     private Float price;
     //已取
     private Boolean taken;
     //订单ID
-    private Integer order_id;
+    private Integer orderId;
     //更新日期
-    private Date update_date;
+    private Date updateDate;
 
     public Integer getPot_id() {
-        return pot_id;
+        return potId;
     }
 
     public void setPot_id(Integer pot_id) {
-        this.pot_id = pot_id;
+        this.potId = pot_id;
     }
 
     public Integer getOwner_id() {
-        return owner_id;
+        return ownerId;
     }
 
     public void setOwner_id(Integer owner_id) {
-        this.owner_id = owner_id;
+        this.ownerId = owner_id;
     }
 
     public String getOwner_name() {
-        return owner_name;
+        return ownerName;
     }
 
     public void setOwner_name(String owner_name) {
-        this.owner_name = owner_name;
+        this.ownerName = owner_name;
     }
 
     public Float getPrice() {
@@ -68,18 +68,18 @@ public class OwnerDO implements Serializable {
     }
 
     public Integer getOrder_id() {
-        return order_id;
+        return orderId;
     }
 
     public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+        this.orderId = order_id;
     }
 
     public Date getUpdate_date() {
-        return update_date;
+        return updateDate;
     }
 
     public void setUpdate_date(Date update_date) {
-        this.update_date = update_date;
+        this.updateDate = update_date;
     }
 }

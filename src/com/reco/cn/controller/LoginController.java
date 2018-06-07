@@ -61,6 +61,19 @@ public class LoginController {
         return mv;
 
     }
+
+
+    @RequestMapping("/logout")
+    String logout(HttpServletRequest request, UserDO userDO, HttpSession session) {
+        String mv = null;
+        session.removeAttribute(UserConstant.USER);
+        mv = "redirect:/index";
+
+        return mv;
+
+    }
+
+
     @AuthPermission(validate=true)
     @RequestMapping("/usercenter")
     ModelAndView usercenter(HttpServletRequest request) {

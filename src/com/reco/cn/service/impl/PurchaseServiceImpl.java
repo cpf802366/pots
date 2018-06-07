@@ -8,10 +8,10 @@ import com.reco.cn.service.DesignService;
 import com.reco.cn.service.PurchaseService;
 import com.reco.cn.service.SalesService;
 import com.reco.cn.util.R;
-import com.reco.cn.util.ToolConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +26,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     private DesignService designService;
     @Autowired
     private SalesService salesService;
+
     @Override
     public PurchaseDO get(Integer poId) {
         return purchaseDao.get(poId);
@@ -62,39 +63,61 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     public R savebyorder(PurchaseDO purchase) {
+        Map<String, Object> map = new HashMap<>();
+        List<PurchaseDO> ls;
+
         Map<String, Object> params = new HashMap<>();
         R r = new R();
 
-          DesignDO  design  = designService.get(purchase.getDesign_id());
-          SalesDO  salesDO = salesService.get(Integer.parseInt(purchase.getSo_ids()));
-          design.setKucun(design.getKucun()-1);
-          designService.update(design);
-            purchase.setOrder_state(1);
-            purchase.setPot_id(salesDO.getPot_id());
-            purchase.setSeller_id(salesDO.getSeller_id());
-            purchase.setPrice(salesDO.getPrice());
-            String pono = ToolConverter.strDate();
-            purchase.setPo_no(pono);
-            purchase.setPo_dttm(new Date());
-            purchaseDao.save(purchase);
-             r  = R.ok(pono);
+        DesignDO design = designService.get(purchase.getDesign_id());
+        SalesDO salesDO = salesService.get(Integer.parseInt(purchase.getSo_ids()));
 
-        return  r ;
+        purchase.setOrder_state(1);
+        purchase.setPot_id(salesDO.getPotId());
+        purchase.setSeller_id(salesDO.getSellerId());
+        purchase.setPrice(salesDO.getPrice());
+        purchase.setPo_dttm(new Date());
+
+        String po = purchase.getPo_no();
+        if (po == null || po.length() <= 0) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+            String pre = sdf.format(purchase.getPo_dttm()) + "P";
+
+            map.put("cxtj", "and po_no like '" + pre + "%'");
+            map.put("sort", "po_no");
+            map.put("order", "desc");
+
+            ls = list(map);
+
+            if (ls.size() == 0)
+                po = pre + "0001";
+            else {
+                po = ls.get(0).getPo_no();
+                po = pre + String.format("%04d", (Integer.valueOf(po.substring(9)) + 1));
+            }
+            purchase.setPo_no(po);
+        }
+
+
+
+        purchaseDao.save(purchase);
+        r = R.ok(po);
+
+        return r;
     }
 
     @Override
     public R saveByNoAddr(PurchaseDO purchase) {
         Map<String, Object> params = new HashMap<>();
-        params.put("po_no",purchase.getPo_no());
+        params.put("po_no", purchase.getPo_no());
         List<PurchaseDO> list = purchaseDao.list(params);
-        if(list != null && list.size()>0){
+        if (list != null && list.size() > 0) {
             purchase.setPo_id(list.get(0).getPo_id());
             purchaseDao.update(purchase);
             return R.ok();
-        }else{
+        } else {
             return R.error();
         }
-
 
 
     }

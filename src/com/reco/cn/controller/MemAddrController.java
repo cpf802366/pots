@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -158,6 +159,8 @@ public class MemAddrController {
         purchaseDO.setBuyer_id( userDO.getUser_id().intValue());
         purchaseDO.setBuyer_name( userDO.getUsername());
         purchaseDO.setDesign_id(designid);
+
+
         if(soid != null  ){
             purchaseDO.setSo_ids(soid.toString());
         }

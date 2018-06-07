@@ -13,72 +13,74 @@ public class SalesDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //销售订单ID
-    private Integer so_id;
+    private Integer soId;
     //销售单号
-    private String so_no;
+    private String soNo;
     //卖家ID
-    private Integer seller_id;
+    private Integer sellerId;
     //
-    private Integer pot_id;
+    private Integer potId;
     //
-    private Integer design_id;
+    private Integer designId;
     //上架时间
-    private Date sell_dttm;
+    private Date sellDttm;
     //价格
     private Float price;
     //转让方式
-    private Integer sell_mode;
+    private Integer sellMode;
     //成交时间
-    private Date complete_dttm;
-    //采购单ID，多个，拼接
-    private String po_ids;
+    private Date completeDttm;
 
-    public Integer getSo_id() {
-        return so_id;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public void setSo_id(Integer so_id) {
-        this.so_id = so_id;
+    public Integer getSoId() {
+        return soId;
     }
 
-    public String getSo_no() {
-        return so_no;
+    public void setSoId(Integer soId) {
+        this.soId = soId;
     }
 
-    public void setSo_no(String so_no) {
-        this.so_no = so_no;
+    public String getSoNo() {
+        return soNo;
     }
 
-    public Integer getSeller_id() {
-        return seller_id;
+    public void setSoNo(String soNo) {
+        this.soNo = soNo;
     }
 
-    public void setSeller_id(Integer seller_id) {
-        this.seller_id = seller_id;
+    public Integer getSellerId() {
+        return sellerId;
     }
 
-    public Integer getPot_id() {
-        return pot_id;
+    public void setSellerId(Integer sellerId) {
+        this.sellerId = sellerId;
     }
 
-    public void setPot_id(Integer pot_id) {
-        this.pot_id = pot_id;
+    public Integer getPotId() {
+        return potId;
     }
 
-    public Integer getDesign_id() {
-        return design_id;
+    public void setPotId(Integer potId) {
+        this.potId = potId;
     }
 
-    public void setDesign_id(Integer design_id) {
-        this.design_id = design_id;
+    public Integer getDesignId() {
+        return designId;
     }
 
-    public Date getSell_dttm() {
-        return sell_dttm;
+    public void setDesignId(Integer designId) {
+        this.designId = designId;
     }
 
-    public void setSell_dttm(Date sell_dttm) {
-        this.sell_dttm = sell_dttm;
+    public Date getSellDttm() {
+        return sellDttm;
+    }
+
+    public void setSellDttm(Date sellDttm) {
+        this.sellDttm = sellDttm;
     }
 
     public Float getPrice() {
@@ -89,27 +91,33 @@ public class SalesDO implements Serializable {
         this.price = price;
     }
 
-    public Integer getSell_mode() {
-        return sell_mode;
+    public Integer getSellMode() {
+        return sellMode;
     }
 
-    public void setSell_mode(Integer sell_mode) {
-        this.sell_mode = sell_mode;
+    public void setSellMode(Integer sellMode) {
+        this.sellMode = sellMode;
     }
 
-    public Date getComplete_dttm() {
-        return complete_dttm;
+    public Date getCompleteDttm() {
+        return completeDttm;
     }
 
-    public void setComplete_dttm(Date complete_dttm) {
-        this.complete_dttm = complete_dttm;
+    public void setCompleteDttm(Date completeDttm) {
+        this.completeDttm = completeDttm;
     }
 
-    public String getPo_ids() {
-        return po_ids;
+    public String getPoIds() {
+
+        return poIds;
     }
 
-    public void setPo_ids(String po_ids) {
-        this.po_ids = po_ids;
+    public void setPoIds(String poIds) {
+        this.poIds = poIds;
     }
+
+    //采购单ID，多个，拼接
+    private String poIds;
+
+
 }

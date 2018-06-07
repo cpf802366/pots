@@ -4,24 +4,24 @@
 <mapper namespace="com.reco.cn.dao.SalesDao">
 
     <select id="get" resultType="com.reco.cn.domain.SalesDO">
-        select `so_id`,`so_no`,`seller_id`,`pot_id`,`design_id`,`sell_dttm`,`price`,`sell_mode`,`complete_dttm`,`po_ids`
+        select `so_id` as soId,`so_no` as soNo,`seller_id` as sellerId,`pot_id` as potId,`design_id` as designId,`sell_dttm` as sellDttm,`price`,`sell_mode` as sellMode,`complete_dttm` as completeDttm,`po_ids` as poIds
         from pot_sales where so_id = #{value}
     </select>
 
     <select id="list" resultType="com.reco.cn.domain.SalesDO">
-        select `so_id`,`so_no`,`seller_id`,`pot_id`,`design_id`,`sell_dttm`,`price`,`sell_mode`,`complete_dttm`,`po_ids`
+        select `so_id` as soId,`so_no` as soNo,`seller_id` as sellerId,`pot_id` as potId,`design_id` as designId,`sell_dttm` as sellDttm,`price`,`sell_mode` as sellMode,`complete_dttm` as completeDttm,`po_ids` as poIds
         from pot_sales
         <where>
-            <if test="so_id != null and so_id != ''">and so_id = #{so_id}</if>
-            <if test="so_no != null and so_no != ''">and so_no = #{so_no}</if>
-            <if test="seller_id != null and seller_id != ''">and seller_id = #{seller_id}</if>
-            <if test="pot_id != null and pot_id != ''">and pot_id = #{pot_id}</if>
-            <if test="design_id != null and design_id != ''">and design_id = #{design_id}</if>
-            <if test="sell_dttm != null and sell_dttm != ''">and sell_dttm = #{sell_dttm}</if>
+            <if test="soId != null and soId != ''">and so_id = #{soId}</if>
+            <if test="soNo != null and soNo != ''">and so_no = #{soNo}</if>
+            <if test="sellerId != null and sellerId != ''">and seller_id = #{sellerId}</if>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="sellDttm != null and sellDttm != ''">and sell_dttm = #{sellDttm}</if>
             <if test="price != null and price != ''">and price = #{price}</if>
-            <if test="sell_mode != null and sell_mode != ''">and sell_mode = #{sell_mode}</if>
-            <if test="complete_dttm != null and complete_dttm != ''">and complete_dttm = #{complete_dttm}</if>
-            <if test="po_ids != null and po_ids != ''">and po_ids = #{po_ids}</if>
+            <if test="sellMode != null and sellMode != ''">and sell_mode = #{sellMode}</if>
+            <if test="completeDttm != null and completeDttm != ''">and complete_dttm = #{completeDttm}</if>
+            <if test="poIds != null and poIds != ''">and po_ids = #{poIds}</if>
             <if test="cxtj != null and cxtj != ''"> ${cxtj}</if>
         </where>
         <choose>
@@ -50,6 +50,7 @@
             <if test="sellMode != null and sellMode != ''">and sell_mode = #{sellMode}</if>
             <if test="completeDttm != null and completeDttm != ''">and complete_dttm = #{completeDttm}</if>
             <if test="poIds != null and poIds != ''">and po_ids = #{poIds}</if>
+            <if test="cxtj != null and cxtj != ''"> ${cxtj}</if>
         </where>
     </select>
 
@@ -85,17 +86,18 @@
     <update id="update" parameterType="com.reco.cn.domain.SalesDO">
         update pot_sales
         <set>
-            <if test="so_no != null">`so_no` = #{so_no},</if>
-            <if test="seller_id != null">`seller_id` = #{seller_id},</if>
-            <if test="pot_id != null">`pot_id` = #{pot_id},</if>
-            <if test="design_id != null">`design_id` = #{design_id},</if>
-            <if test="sell_dttm != null">`sell_dttm` = #{sell_dttm},</if>
-            <if test="price != null">`price` = #{price},</if>
-            <if test="sell_mode != null">`sell_mode` = #{sell_mode},</if>
-            <if test="complete_dttm != null">`complete_dttm` = #{complete_dttm},</if>
-            <if test="po_ids != null">`po_ids` = #{po_ids}</if>
+            <if test="soId != null and soId != ''">and so_id = #{soId}</if>
+            <if test="soNo != null and soNo != ''">and so_no = #{soNo}</if>
+            <if test="sellerId != null and sellerId != ''">and seller_id = #{sellerId}</if>
+            <if test="potId != null and potId != ''">and pot_id = #{potId}</if>
+            <if test="designId != null and designId != ''">and design_id = #{designId}</if>
+            <if test="sellDttm != null and sellDttm != ''">and sell_dttm = #{sellDttm}</if>
+            <if test="price != null and price != ''">and price = #{price}</if>
+            <if test="sellMode != null and sellMode != ''">and sell_mode = #{sellMode}</if>
+            <if test="completeDttm != null and completeDttm != ''">and complete_dttm = #{completeDttm}</if>
+            <if test="poIds != null and poIds != ''">and po_ids = #{poIds}</if>
         </set>
-        where so_id = #{so_id}
+        where so_id = #{soId}
     </update>
 
     <delete id="remove">

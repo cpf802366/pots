@@ -47,6 +47,9 @@ public class UserController {
     private InfoService infoService;
 
     @Autowired
+    private SalesService salesService;
+
+    @Autowired
     private PurchaseService purchaseService;
 
     @RequestMapping()
@@ -89,20 +92,37 @@ public class UserController {
         mv.setViewName("front/user/userCenter_dlaq");
         return mv;
     }
-    @AuthPermission(validate=true)
+
+    @AuthPermission(validate = true)
     @RequestMapping("/myhu")
     ModelAndView myhu(HttpServletRequest request, HttpSession session) {
         ModelAndView mv = new ModelAndView();
         UserDO uo = (UserDO) session.getAttribute(UserConstant.USER);
 
+        Map<String, Object> map = new HashMap<>();
+        map.put("cxtj", "and complete_dttm is null and seller_id = " + uo.getUser_id());
+        List<SalesDO> lsSales = salesService.list(map);
+
+        int cntMySales = lsSales.size();
+
         List<MyhuDO> list = new ArrayList<MyhuDO>();
 
         Map<String, Object> q1 = new HashMap<String, Object>();
-        q1.put("owner_id", uo.getUser_id());
+        q1.put("ownerId", uo.getUser_id());
         List<OwnerDO> ls1 = ownerService.list(q1);
         for (OwnerDO d : ls1) {
             MyhuDO myhu = new MyhuDO();
             myhu.setHisDOList(new ArrayList<MyhuHisDO>());
+
+
+            myhu.setFlagSales(0);
+            for (SalesDO s : lsSales) {
+                if (s.getPotId().equals(d.getPot_id())) {
+                    myhu.setFlagSales(1);
+                    break;
+                }
+            }
+
 
             InfoDO info = infoService.get(d.getPot_id());
             PurchaseDO po = purchaseService.get(d.getOrder_id());
@@ -117,7 +137,7 @@ public class UserController {
                     myhu.setAuthor(design.getAuthor());
                     myhu.setArt_Id(design.getArt_id());
                     myhu.setDesign_name(design.getName());
-                    myhu.setDesign_img(design.getProductimg());
+                    myhu.setDesign_img(design.getAuthorproductimage());
                 }
 
                 Map<String, Object> q2 = new HashMap<String, Object>();
@@ -127,7 +147,7 @@ public class UserController {
                     MyhuHisDO his = new MyhuHisDO();
                     his.setOwner_name(poo.getBuyer_name());
                     his.setPo_dttm_str(new SimpleDateFormat("yyyy-MM-dd").format(poo.getPo_dttm()));
-                    his.setPo_price_str(new DecimalFormat("###,##0").format(poo.getPrice() / 10000));
+                    his.setPo_price_str(new DecimalFormat("###,##0").format(poo.getPrice()));
 
                     myhu.getHisDOList().add(his);
                 }
@@ -144,6 +164,7 @@ public class UserController {
             list.add(myhu);
         }
 
+        mv.addObject("cntMySales", cntMySales);
         mv.addObject("myhuList", list);
         mv.setViewName("front/user/myhu");
         return mv;

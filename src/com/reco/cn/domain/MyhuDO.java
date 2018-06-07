@@ -121,6 +121,20 @@ public class MyhuDO implements Serializable {
     private String po_price_str;
     //已提货
     private Boolean taken;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Integer getFlagSales() {
+        return flagSales;
+    }
+
+    public void setFlagSales(Integer flagSales) {
+        this.flagSales = flagSales;
+    }
+
+    private  Integer flagSales;
     private List<MyhuHisDO> hisDOList;
 
     public List<MyhuHisDO> getHisDOList() {

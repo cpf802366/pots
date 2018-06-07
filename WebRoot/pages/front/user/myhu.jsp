@@ -52,7 +52,7 @@
         <div class="myhu">
             <div class="mb20">
                 <h2 class="fcViolet">
-                    现有紫砂壶<span>${fn:length(myhuList) } </span>个，出售<span>0</span>个
+                    现有紫砂壶<span>${fn:length(myhuList) } </span>个，出售<span>${cntMySales}</span>个
                 </h2>
             </div>
             <c:forEach var="t" items="${myhuList}" varStatus="status">
@@ -90,9 +90,21 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <a href="javascript:void(0)">出售</a>
-                    <a href="javascript:void(0)">取壶</a>
+                <c:choose>
+                    <c:when test="${t.flagSales>0}">
+                        <a href="javascript:void(0)">出售中</a>
+                    </c:when>
+
+                    <c:otherwise>
+
+                            <a href="<%=basePath%>sales/add?potId=${t.pot_id}">出售</a>
+                            <a href="javascript:void(0)">取壶</a>
+
+                    </c:otherwise>
+                </c:choose>
                 </div>
+
+
             </c:forEach>
 
         </div>

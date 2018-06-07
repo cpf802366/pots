@@ -82,52 +82,16 @@ public class DesignDO implements Serializable {
     //
     private Integer jiami;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     public Integer getDesign_id() {
         return design_id;
     }
 
     public void setDesign_id(Integer design_id) {
         this.design_id = design_id;
-    }
-
-    public Integer getArt_id() {
-        return art_id;
-    }
-
-    public void setArt_id(Integer art_id) {
-        this.art_id = art_id;
-    }
-
-    public String getGg_h() {
-        return gg_h;
-    }
-
-    public void setGg_h(String gg_h) {
-        this.gg_h = gg_h;
-    }
-
-    public String getGg_kj() {
-        return gg_kj;
-    }
-
-    public void setGg_kj(String gg_kj) {
-        this.gg_kj = gg_kj;
-    }
-
-    public String getGg_len() {
-        return gg_len;
-    }
-
-    public void setGg_len(String gg_len) {
-        this.gg_len = gg_len;
-    }
-
-    public String getGg_w() {
-        return gg_w;
-    }
-
-    public void setGg_w(String gg_w) {
-        this.gg_w = gg_w;
     }
 
     public String getAuthor() {
@@ -138,6 +102,13 @@ public class DesignDO implements Serializable {
         this.author = author;
     }
 
+    public Integer getArt_id() {
+        return art_id;
+    }
+
+    public void setArt_id(Integer art_id) {
+        this.art_id = art_id;
+    }
 
     public String getName() {
         return name;
@@ -323,7 +294,37 @@ public class DesignDO implements Serializable {
         this.fzimage = fzimage;
     }
 
+    public String getGg_h() {
+        return gg_h;
+    }
 
+    public void setGg_h(String gg_h) {
+        this.gg_h = gg_h;
+    }
+
+    public String getGg_kj() {
+        return gg_kj;
+    }
+
+    public void setGg_kj(String gg_kj) {
+        this.gg_kj = gg_kj;
+    }
+
+    public String getGg_len() {
+        return gg_len;
+    }
+
+    public void setGg_len(String gg_len) {
+        this.gg_len = gg_len;
+    }
+
+    public String getGg_w() {
+        return gg_w;
+    }
+
+    public void setGg_w(String gg_w) {
+        this.gg_w = gg_w;
+    }
 
     public String getGy() {
         return gy;
